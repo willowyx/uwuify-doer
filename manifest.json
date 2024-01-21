@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "uwuifier-doer",
+  "version": "0.0.3",
+  "description": "Ensures all websites align with uwu web standards",
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["ContentScript.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["resources/cursor_auto.png", "resources/cursor_pointer.png", "resources/boykisser.png"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "48": "resources/icon.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "haii@willowyx.dev"
+    }
+  }
+}

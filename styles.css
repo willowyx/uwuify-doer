@@ -1,0 +1,16 @@
+html {
+    cursor: url('resources/cursor_auto.png'), auto !important;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: url("resources/boykisser.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+a, button, input[type="submit"] {
+    cursor: url('resources/cursor_pointer.png'), pointer !important;
+}
