@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uwuify</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="js/prefshandler.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/local_styles.css">
+    <style type="text/css">
+        * {
+            text-align: left;
+        }
+
+        .action_whitelist_wrapper {
+            padding: 1%;
+        }
+
+        .info-notice-wmain {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        🌸 uwuify (whitelist)
+    </div>
+
+    <div class="container">
+        <div class="pref-section">
+            <b class="info-notice-wmain">Important: read the notes below before continuing!</b>
+            <br><br>
+            <textarea class="textinput" id="whitelist_output" placeholder="empty or fetching data..."></textarea>
+            <br><br>
+            <input type="button" class="link" id="refresh_whitelist_btn" value="refresh">
+            <input type="button" class="link" id="apply_whitelist_btn" value="apply this whitelist">
+            <input type="button" class="link" id="clear_whitelist_btn" value="clear whitelist">
+            <br><br><hr><br>
+            <span class="info-detail">
+                Enter one or more domains to whitelist, separated by commas.<br>
+                You can specify pages and subdomains; do not include regex or website protocols (http/s)<br>
+                New whitelist entries will overwrite all current entries, so always input the full list<br>
+                Press "refresh" after entering data to ensure entries were input correctly.<br><br>
+                You can still manually uwuify whitelisted domains.<br><br>
+                I highly recommend saving your whitelist data as backup, just in case.
+            </span>
+            <br><br><hr><br>
+            <label>
+                debug log
+                <input type="text" class="textinput" id="whitelist_status_output" readonly placeholder="nothing to report yet">
+            </label>
+        </div>
+    </div>
+    <div class="action_whitelist_wrapper">
+        <input type="button" class="link nw" id="close_whitelist_btn" value="close">
+    </div>
+
+</body>
+</html>

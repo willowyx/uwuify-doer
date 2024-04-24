@@ -1,0 +1,37 @@
+{
+  "name": "uwuify-doer",
+  "description": "uwuifies the web",
+  "version": "1.3.1",
+  "manifest_version": 3,
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js", "js/prefshandler.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "resources/local_styles.css",
+        "resources/boykisser.png",
+        "resources/icon.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_popup": "main.html"
+  },
+  "icons": {
+    "48": "resources/icon.png"
+  }
+}
