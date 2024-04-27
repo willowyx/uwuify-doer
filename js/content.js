@@ -65,7 +65,7 @@ function uwuifyText(node) {
         let parent = node.parentNode;
         while (parent) {
             // this was uwuifying scripts and styles and that was breaking a *lot* of sites lol
-            if (parent.tagName === 'script' || parent.tagName === 'style') {
+            if (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
                 return;
             }
             parent = parent.parentNode;
