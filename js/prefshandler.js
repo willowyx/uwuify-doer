@@ -9,10 +9,13 @@ document.addEventListener('DOMContentLoaded', function () {
 function connect_prefs() {
     const uwu_on_btn = document.getElementById('uwuify_on_btn');
     const uwu_off_btn = document.getElementById('uwuify_off_btn');
+    const moreuwu_on_btn = document.getElementById('enable_moreuwu_btn');
+    const moreuwu_off_btn = document.getElementById('disable_moreuwu_btn');
     const uwu_re_btn = document.getElementById('uwuify_btn');
     const enable_warn_btn = document.getElementById('enable_warning');
     const get_wl_btn = document.getElementById('get_whitelist_btn');
     const close_wl_btn = document.getElementById('close_whitelist_btn');
+    const close_prefs_btn = document.getElementById('close_prefs_btn');
     const refresh_wl_btn = document.getElementById('refresh_whitelist_btn');
     const clear_wl_btn = document.getElementById('clear_whitelist_btn');
     const apply_wl_btn = document.getElementById('apply_whitelist_btn');
@@ -31,6 +34,20 @@ function connect_prefs() {
         });
     }
 
+    if (moreuwu_on_btn) {
+        moreuwu_on_btn.addEventListener('click', () => {
+            enable_moreuwu();
+            populate_prefs();
+        });
+    }
+
+    if (moreuwu_off_btn) {
+        moreuwu_off_btn.addEventListener('click', () => {
+            disable_moreuwu();
+            populate_prefs();
+        });
+    }
+
     if (uwu_re_btn) {
         uwu_re_btn.addEventListener('click', () => {
             api.runtime.sendMessage({ action: "call_uwuify" });
@@ -45,12 +62,18 @@ function connect_prefs() {
 
     if (get_wl_btn) {
         get_wl_btn.addEventListener('click', () => {
-            window.open('whitelist.html', 'whitelist_window', 'width=500,height=500');
+            window.open('whitelist.html', 'whitelist_window', 'width=500,height=600');
         });
     }
 
     if (close_wl_btn) {
         close_wl_btn.addEventListener('click', () => {
+            window.close();
+        });
+    }
+
+    if (close_prefs_btn) {
+        close_prefs_btn.addEventListener('click', () => {
             window.close();
         });
     }
@@ -77,9 +100,15 @@ function connect_prefs() {
 
 function populate_prefs() {
     getState('prefs_uwuify').then(value => {
-        const uwuStateElement = document.getElementById('uwu_state');
-        if (uwuStateElement) {
-            uwuStateElement.innerText = value === true || value === undefined ? 'on' : 'off';
+        const uwuStateInfo = document.getElementById('uwu_state');
+        if (uwuStateInfo) {
+            uwuStateInfo.innerText = value === true || value === undefined ? 'on' : 'off';
+        }
+    });
+    getState('prefs_moreuwu').then(value => {
+        const uwu_amount_info = document.getElementById('uwu_amount');
+        if(uwu_amount_info) {
+            uwu_amount_info.innerText = value === true ? 'on' : 'off';
         }
     });
     populateWhitelist();
@@ -97,6 +126,21 @@ function disableUwuify() {
     api.storage.sync.set({ prefs_uwuify: false }, function () {
         getState('prefs_uwuify').then(value => {
             // console.log(value);
+        });
+    });
+}
+
+function enable_moreuwu() {
+    api.storage.sync.set({ prefs_moreuwu: true }, function () {
+        getState('prefs_moreuwu').then(value => {
+            // console.log(value);
+        });
+    });
+}
+
+function disable_moreuwu() {
+    api.storage.sync.set({ prefs_moreuwu: false }, function () {
+        getState('prefs_moreuwu').then(value => {
         });
     });
 }

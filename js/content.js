@@ -1,13 +1,10 @@
 var api = typeof browser !== 'undefined' ? browser : chrome;
 
-function safe_uwuify() {
-    getState('prefs_uwuify').then(value => {
-        if (value || value === undefined) {
-            callSafe_bg(true);
-        } else {
-            console.log('uwuify is not enabled');
-        }
-    });
+async function safe_uwuify() {
+    const value = await getState('prefs_uwuify');
+    if (value || value === undefined) {
+        await callSafe_bg(true);
+    }
 }
 
 api.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
@@ -16,8 +13,8 @@ api.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     }
 });
 
-function call_uwuify() {
-    uwuifyText(document.body);
+async function call_uwuify() {
+    await uwuifyText(document.body);
 }
 
 function enableUwuify() {
@@ -60,8 +57,17 @@ async function checkStateLayoutModal() {
     return value;
 }
 
-function uwuifyText(node) {
+async function checkUwuAmount() {
+    const value = await getState('prefs_moreuwu');
+    return value;
+}
+
+async function uwuifyText(node) {
     if (node.nodeType === Node.TEXT_NODE) {
+        // fix for additional uwuification of whitespace
+        if (!/\S/.test(node.textContent)) {
+            return;
+        }
         let parent = node.parentNode;
         while (parent) {
             // this was uwuifying scripts and styles and that was breaking a *lot* of sites lol
@@ -70,7 +76,7 @@ function uwuifyText(node) {
             }
             parent = parent.parentNode;
         }
-        node.textContent = uwuify(node.textContent);
+        node.textContent = await uwuify(node.textContent);
     } else {
         for (let i = 0; i < node.childNodes.length; i++) {
             uwuifyText(node.childNodes[i]);
@@ -78,25 +84,47 @@ function uwuifyText(node) {
     }
 }
 
-function uwuify(str) {
-    return str.replace(/r|l/g, 'w')
+async function uwuify(str) {
+    str = str.replace(/r|l/g, 'w')
         .replace(/R|L/g, 'W')
         .replace(/Chr|chr/g, 'cw')
         .replace(/Ove|ove/g, 'uv')
+        .replace(/ss|SS/g, 'sh')
         .replace(/n([aeiou])/g, 'ny$1')
         .replace(/N([aeiou])/g, 'Ny$1')
         .replace(/N([AEIOU])/g, 'Ny$1');
+
+    if ((await checkUwuAmount() == true)) {
+        let sentences = str.split(/(?<=[.,!?])\s+/);
+        for (let i = 0; i < sentences.length; i++) {
+            let words = sentences[i].split(' ');
+            if (words.length >= 1) {
+                if (Math.random() < 0.1) {
+                    let additions = [' nya', ' hehe', ' uwu', ' owo'];
+                    let addition = additions[Math.floor(Math.random() * additions.length)];
+                    let lastWord = words[words.length - 1];
+                    let punctuation = '';
+                    if (lastWord.endsWith('.') || lastWord.endsWith('!') || lastWord.endsWith('?')) {
+                        punctuation = lastWord.slice(-1);
+                        lastWord = lastWord.slice(0, -1);
+                    }
+                    lastWord += addition + punctuation;
+                    words[words.length - 1] = lastWord;
+                    sentences[i] = words.join(' ');
+                }
+            }
+        }
+        str = sentences.join(' ');
+    }
+    return str;
 }
 
-(function () {
+(async function () {
     console.log('Started content script');
-    safe_uwuify();
+    await safe_uwuify();
 })();
 
 
-
-
-// uwuify notice
 
 const modalCSS = `
 #warn-layout-modal {
@@ -189,15 +217,15 @@ function hideModal() {
     modal.style.display = 'none';
 }
 
-confirmButton.addEventListener('click', function () {
+confirmButton.addEventListener('click', async function () {
     hideModal();
-    call_uwuify();
+    await call_uwuify();
 });
 
-hideLayoutButton.addEventListener('click', function () {
+hideLayoutButton.addEventListener('click', async function () {
     hideLayoutForever();
     hideModal();
-    call_uwuify();
+    await call_uwuify();
 });
 
 cancelButton.addEventListener('click', hideModal);
@@ -216,12 +244,12 @@ async function callSafe_bg(autostate) {
             const notif = 'this site is on uwuify\'s whitelist (' + await checkWhitelist() + '). ' +
                 'Do you wish to uwuify anyway?';
             if (await checkStateLayoutModal() == true) {
-                call_uwuify();
+                await call_uwuify();
             } else {
                 showModal(notif);
             }
         }
     } else {
-        call_uwuify();
+        await call_uwuify();
     }
 }

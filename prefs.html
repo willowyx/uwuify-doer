@@ -24,7 +24,7 @@
 
     <div class="container">
         <div class="pref-section">
-            <span class="main_description">GUESS WHAT I FINALLY ADDED</span>
+            <span class="main_detail">Whitelist</span>
             <br><br>
             <label>
                 <input type="button" class="link" id="get_whitelist_btn" value="edit whitelist">
@@ -36,8 +36,27 @@
         </div>
         <br><hr><br>
         <div class="pref-section">
+            <span class="main_detail">More uwuifying</span>
+            <br><br>
             <label>
-                <input type="button" class="link" id="enable_warning" value="re-enable warnings">
+                <input type="button" class="link" id="enable_moreuwu_btn" value="enable">
+            </label>
+            <label>
+                <input type="button" class="link" id="disable_moreuwu_btn" value="disable">
+            </label><br>
+            <span class="info-detail">this setting is <span id="uwu_amount"></span></span>
+            <br><br>
+            <span class="info-detail">
+                add phrases like "uwu" or "nya!" to the end of sentences sometimes<br>
+                this is still in development so there may be some weird behavior
+            </span>
+        </div>
+        <br><hr><br>
+        <div class="pref-section">
+            <span class="main_detail">Re-enable warnings</span>
+            <br><br>
+            <label>
+                <input type="button" class="link" id="enable_warning" value="reset warnings">
             </label>
             <br><br>
             <span class="info-detail">
@@ -45,9 +64,24 @@
             </span>
         </div>
         <br><hr><br>
+        <div class="pref-section">
+            <span class="main_detail">Shortcuts</span>
+            <br><br>
+            <label>
+                <input type="text" class="link display" value="ctrl+shift+U" readonly>
+                to uwuify page
+            </label>
+            <br><br>
+            <span class="info-detail">
+                Use the Command key instead of ctrl if you're on Mac
+            </span>
+        </div>
+        <br><hr><br>
             <span class="main_description">
                 settings are applied individually, but you may have to refresh tabs to populate changes
-            </span>
+            </span><br>
+        <br><br>
+        <input type="button" class="link nw" id="close_prefs_btn" value="close">
     </div>
     <div class="footer">
         <a class="footer_link" target="_blank" href="https://willowyx.dev/projects/uwuify">docs</a>

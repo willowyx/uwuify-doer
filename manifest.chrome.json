@@ -1,7 +1,7 @@
 {
   "name": "uwuify-doer",
   "description": "uwuifies the web",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "manifest_version": 3,
   "permissions": [
     "activeTab",
@@ -27,6 +27,15 @@
       "matches": ["<all_urls>"]
     }
   ],
+  "commands": {
+    "call_uwuify_kb": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
+      },
+      "description": "Run uwuifier on the current page."
+    }
+  },
   "action": {
     "default_popup": "main.html"
   },
