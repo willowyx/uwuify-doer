@@ -122,13 +122,13 @@ function populate_prefs() {
     });
 
     if (uwuify_hk_out) {
-        var manifest = chrome.runtime.getManifest();
-        var uwuify_hotkey = manifest.commands.call_uwuify_kb.suggested_key.default;
+        var manifest = api.runtime.getManifest();
+        var uwuify_hotkey = manifest.commands.call_uwuify_kb.suggested_key.linux;
         uwuify_hk_out.value = uwuify_hotkey;
     }
 
     if (version_out) {
-        var manifest = chrome.runtime.getManifest();
+        var manifest = api.runtime.getManifest();
         version_out.innerText = manifest.version;
     }
 
