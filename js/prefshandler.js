@@ -15,7 +15,6 @@ function connect_prefs() {
     const enable_warn_btn = document.getElementById('enable_warning');
     const get_wl_btn = document.getElementById('get_whitelist_btn');
     const close_wl_btn = document.getElementById('close_whitelist_btn');
-    const close_prefs_btn = document.getElementById('close_prefs_btn');
     const refresh_wl_btn = document.getElementById('refresh_whitelist_btn');
     const clear_wl_btn = document.getElementById('clear_whitelist_btn');
     const apply_wl_btn = document.getElementById('apply_whitelist_btn');
@@ -72,12 +71,6 @@ function connect_prefs() {
         });
     }
 
-    if (close_prefs_btn) {
-        close_prefs_btn.addEventListener('click', () => {
-            window.close();
-        });
-    }
-
     if (refresh_wl_btn) {
         refresh_wl_btn.addEventListener('click', () => {
             populateWhitelist();
@@ -93,24 +86,65 @@ function connect_prefs() {
     if (clear_wl_btn) {
         clear_wl_btn.addEventListener('click', () => {
             clearWhitelist();
-            logWhitelist('whitelist cleared');
+            populateWhitelist();
         });
     }
 }
 
 function populate_prefs() {
+    const uwuify_hk_out = document.getElementById('uwuify_hotkey_display');
+    const version_out = document.getElementById('version_out');
+    const ps_parents = document.querySelectorAll('.pref-section');
+
     getState('prefs_uwuify').then(value => {
         const uwuStateInfo = document.getElementById('uwu_state');
+        const uwuify_on_btn = document.getElementById('uwuify_on_btn');
+        const uwuify_off_btn = document.getElementById('uwuify_off_btn');
         if (uwuStateInfo) {
             uwuStateInfo.innerText = value === true || value === undefined ? 'on' : 'off';
+        }
+        if(uwuify_on_btn && uwuify_off_btn) {
+            uwuify_on_btn.style.border = value === true || value === undefined ? '1px solid rgb(238, 238, 238)' : '1px solid rgba(0,0,0,0)';
+            uwuify_off_btn.style.border = value === false ? '1px solid rgb(238, 238, 238)' : '1px solid rgba(0,0,0,0)';
         }
     });
     getState('prefs_moreuwu').then(value => {
         const uwu_amount_info = document.getElementById('uwu_amount');
-        if(uwu_amount_info) {
+        if (uwu_amount_info) {
             uwu_amount_info.innerText = value === true ? 'on' : 'off';
+
+            const enable_moreuwu_btn = document.getElementById('enable_moreuwu_btn');
+            enable_moreuwu_btn.style.border = value === true ? '1px solid rgb(238, 238, 238)' : '1px solid rgba(0,0,0,0)';
+
+            const disable_moreuwu_btn = document.getElementById('disable_moreuwu_btn');
+            disable_moreuwu_btn.style.border = value === false || value === undefined ? '1px solid rgb(238, 238, 238)' : '1px solid rgba(0,0,0,0)';
         }
     });
+
+    if (uwuify_hk_out) {
+        var manifest = chrome.runtime.getManifest();
+        var uwuify_hotkey = manifest.commands.call_uwuify_kb.suggested_key.default;
+        uwuify_hk_out.value = uwuify_hotkey;
+    }
+
+    if (version_out) {
+        var manifest = chrome.runtime.getManifest();
+        version_out.innerText = manifest.version;
+    }
+
+    ps_parents.forEach(function(ps_parent) {
+    var main_detail = ps_parent.querySelector('.main_detail');
+    if (main_detail) {
+        main_detail.addEventListener('click', function() {
+            var main_setting_all = document.querySelectorAll('.main_setting');
+            main_setting_all.forEach(function(setting) {
+                setting.style.display = 'none';
+            });
+            this.nextElementSibling.style.display = 'inline-block';
+        });
+    }
+});
+
     populateWhitelist();
 }
 
@@ -141,6 +175,7 @@ function enable_moreuwu() {
 function disable_moreuwu() {
     api.storage.sync.set({ prefs_moreuwu: false }, function () {
         getState('prefs_moreuwu').then(value => {
+            // console.log(value);
         });
     });
 }
@@ -193,9 +228,11 @@ function addToWhitelist(domains) {
 }
 
 function clearWhitelist() {
-    api.storage.sync.set({ 'whitelist': '' }, function () {
-        logWhitelist('whitelist cleared');
-    });
+    if (confirm('Are you sure you want to delete all whitelist entries?')) {
+        api.storage.sync.set({ 'whitelist': '' }, function () {
+            logWhitelist('whitelist cleared');
+        });
+    }
 }
 
 function logWhitelist(data) {

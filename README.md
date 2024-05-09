@@ -8,30 +8,32 @@
 
 It makes the boring internet jump alive with whimsical uwu-speak and such :3
 
-<br>
-
-# are there more features planned?
-
-### *probably*
-
-I'm not entirely sure if I'll be able to implement too many other things, Javascript being my mortal enemy and all that. I'll try though.
+You can also turn off the perma-uwu mode so it only activates when you choose!
 
 <br>
 
-# help why no work :\(
+# what are the main features?
+
+### Glad you asked!
+
+* perma-uwu mode
+* extra uwu mode
+* site whitelist
+* convenient keyboard shortcuts
+* profound sense of accomplishment(?)
+
+<br>
+
+# help why no work
 
 ### [Shoot me an email](mailto:haii@willowyx.dev) and I'll try and help.
 
-As a general rule of thumb, for security reasons uwuify won't work on privileged domains like these:
-- `about:`
-- `chrome://`
-- `*.firefox.com`
-- `chrome.google.com/*`
+As a general rule of thumb, for security reasons uwuify won't work on privileged domains like ```chrome://``` or ```about:```
 
 <br>
 
-## do you have a homepage for this extension?
+# extension homepage
 
-### [why yes, in fact, I do](https://willowyx.dev/projects/uwuify)
+### [here you go!](https://willowyx.dev/projects/uwuify)
 
-The site also has some more FAQs and screenshots if you were seeking additional information :3
+#### It also has some more FAQs and screenshots there if you wish to locate additional information or help :3

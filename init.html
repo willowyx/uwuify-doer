@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First launch/update | uwuify</title>
+    <script type="text/javascript" src="js/prefshandler.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -53,9 +54,7 @@
         }
 
         .footer_link {
-            border: 1px solid grey;
             padding: 5px;
-            border-radius: 4px;
             text-decoration: none;
             color: #fff;
         }
@@ -70,7 +69,7 @@
 
 <body>
     <div class="header">
-        🌸 yippee! (uwuify ver. 1.3.3)
+        🌸 uwuify ver. <span id="version_out"></span>
     </div>
 
     <div class="container">
@@ -79,22 +78,18 @@
             <h3>If you are using Firefox, please read the "Important note" section, it's important :3</h3><br>
             <h3>Here's an overview of what's new:</h3>
             <div>
-                <h4>-more uwu!</h4> phrases like "uwu" and "nya" can now be added to sentences at random.
-                You can enable this under preferences!
-
-                <h4>-keyboard shortcut</h4> you can now press ctrl+shift+U (cmd+shift+U for Mac) to uwuify the page.
-                Saved you two clicks :3
+                <h4>-major prefs overhaul</h4> looks pretty decent if I do say so myself
 
                 <h4>-other changes</h4>
-                changed "more settings" to "preferences" because it sounds better or something<br><br>
-                changed a lot of the code to work with the new shortcut, so maybe I'll add some more shortcuts later on<br><br>
-                the main extension page has less words on it (it's a good thing I swear)<br><br>
-                fixed a weird issue on chrome making all the text 75% the normal size<br><br>
-                removed tabs manifest permission for firefox since it's not being used anymore
+                added init, license, README links and version info in prefs<br><br>
+                Mac hotkey changed to ctrl+shift+U<br><br>
+                there are a number of smaller changes listed in the update log!
 
                 <h3>Looking for older update notes?</h3>
-                You can find the update log <a href="https://willowyx.github.io/name-pending-chan/uwuify/updatelog">hidden away in here</a>
-                (or browse through the repo <a href="https://github.com/willowyx/uwuify-doer/commits/main/">commit log</a> if you're into that stuff, I won't judge ^^)
+                You can find the update log <a
+                    href="https://willowyx.github.io/name-pending-chan/uwuify/updatelog">hidden away in here</a>
+                (or browse through the repo <a href="https://github.com/willowyx/uwuify-doer/commits/main/">commit
+                    log</a> if you're into that stuff, I won't judge ^^)
             </div>
         </div>
         <br><hr>
@@ -105,17 +100,17 @@
                 sites by default, so you'll end up having to click it every time you want to activate it, which sort
                 of defeats the purpose of having a perma-uwu mode.
                 <br><br>
-                Fortunately, there are two fixes:
+                Fortunately, there's a fix:
                 <br><br>
                 The easiest way is to right-click on the extension in the toolbar and select "Manage Extension".
-                From there, select the "Permissions" tab and toggle "Access your data for all websites".
+                From there, select the "Permissions" tab and toggle "Access your data for all websites". This will
+                allow the extension to run as intended. I'd like to note here that the extension collects no data, and
+                is
+                open-source if you wish to verify this!
                 <br><br>
                 If you do not feel comfortable doing this, you can also enable the extension on a site-by-site
-                basis:
-                <br><br>
-                Simply navigate to the site of your choosing, right-click on the extension in the toolbar,
-                and select "Always allow on [site name]"
-                <br><br>
+                basis: navigate to the site of your choosing, right-click on the extension in the toolbar,
+                and select "Always allow on [site name]".
                 This will allow the extension to run on that site without requiring you to click it every time.
             </div>
         </div>
@@ -128,7 +123,7 @@
                 If you like this extension please say MEOW as loud as you can.<br>
                 I won't hear you but someone definitely will.
             </div>
-        </div>   
+        </div>
         <br><hr>
         <div class="pref-section">
             <h3>self promotion?</h3>
@@ -143,10 +138,10 @@
     </div>
 
     <div class="footer">
-        <a class="footer_link" target="_blank" href="LICENSE">License</a> -
-        <a class="footer_link" target="_blank" href="README.md">README</a> -
-        <a class="footer_link" target="_blank" href="https://github.com/willowyx/uwuify-doer">Github</a> -
         <a class="footer_link" target="_blank" href="https://willowyx.dev/projects/uwuify">docs</a>
+        <a class="footer_link" target="_blank" href="https://github.com/willowyx/uwuify-doer">github</a>
+        <a class="footer_link" target="_blank" href="LICENSE">license</a>
+        <a class="footer_link" target="_blank" href="README.md">readme</a>
     </div>
 
 </body>

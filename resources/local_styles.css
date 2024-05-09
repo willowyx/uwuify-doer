@@ -29,7 +29,7 @@ body {
 }
 
 .link.hl {
-    border: 1px solid rgb(238, 238, 238);
+    /* border: 1px solid rgb(238, 238, 238); */
 }
 
 .link.nw {
@@ -38,9 +38,9 @@ body {
 }
 
 .link.display {
-    background-color: #543e79;
+    background-color: rgb(206, 129, 196);
     color: #ffffff;
-    cursor: text;
+    cursor: auto;
 }
 
 .header {
@@ -66,6 +66,10 @@ hr {
     font-size: 0.9em;
 }
 
+#whitelist_output {
+    width: 75%;
+}
+
 .textinput {
     display: inline-block;
     padding: 5px 10px;
@@ -85,7 +89,33 @@ hr {
 }
 
 .main_detail {
+    width: 25%;
+    height: 10vh;
+    padding: 10px;
+    display: flex;
     font-size: 1.5em;
+    transition: border-left 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0);
+    justify-content: space-between;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.main_detail:hover {
+    border-left: 1px solid #fff;
+}
+
+.main_setting {
+    position: fixed;
+    top: 25%;
+    right: 0;
+    left: 50%;
+    bottom: 25%;
+    padding: 35px;
+    display: none;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.5s ease-in;
 }
 
 .card {
@@ -119,6 +149,10 @@ hr {
     border-radius: 4px;
     text-decoration: none;
     color: #fff;
+}
+
+.panel_footer {
+    color: rgb(255, 185, 246);
 }
 
 @media screen and (max-width: 600px) {

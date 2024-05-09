@@ -23,70 +23,104 @@
     </div>
 
     <div class="container">
-        <div class="pref-section">
-            <span class="main_detail">Whitelist</span>
-            <br><br>
-            <label>
-                <input type="button" class="link" id="get_whitelist_btn" value="edit whitelist">
-            </label>
-            <br><br>
-            <span class="info-detail">
-                open a new window to edit uwuify's whitelist
-            </span>
+        <div class="main_setting" style="display: inline-block;">
+            <h3>select a setting to expand</h3>
         </div>
-        <br><hr><br>
-        <div class="pref-section">
-            <span class="main_detail">More uwuifying</span>
-            <br><br>
-            <label>
-                <input type="button" class="link" id="enable_moreuwu_btn" value="enable">
-            </label>
-            <label>
-                <input type="button" class="link" id="disable_moreuwu_btn" value="disable">
-            </label><br>
-            <span class="info-detail">this setting is <span id="uwu_amount"></span></span>
-            <br><br>
-            <span class="info-detail">
-                add phrases like "uwu" or "nya!" to the end of sentences sometimes<br>
-                this is still in development so there may be some weird behavior
-            </span>
+        <div class="pref-section" id="ps_whitelist">
+            <div class="main_detail">Whitelist</div>
+            <div class="main_setting">
+                <h1>Whitelist</h1>
+                <label>
+                    <input type="button" class="link" id="get_whitelist_btn" value="edit whitelist">
+                </label>
+                <br><br>
+                <span class="info-detail">
+                    open a new window to edit uwuify's whitelist
+                </span>
+            </div>
         </div>
-        <br><hr><br>
-        <div class="pref-section">
-            <span class="main_detail">Re-enable warnings</span>
-            <br><br>
-            <label>
-                <input type="button" class="link" id="enable_warning" value="reset warnings">
-            </label>
-            <br><br>
-            <span class="info-detail">
-                if you clicked "don't show again" on a warning dialog
-            </span>
+        <div class="pref-section" id="ps_moreuwu">
+            <div class="main_detail">Perma-uwu<span id="uwu_state"></span></div>
+            <div class="main_setting">
+                <h1>Perma-uwu</h1>
+                <label>
+                    <input type="button" class="link hl" id="uwuify_on_btn" value="on">
+                </label>
+                <label>
+                    <input type="button" class="link" id="uwuify_off_btn" value="off">
+                </label>
+                <br><br>
+                <span class="info-detail">
+                    automatically uwuify every page you visit, except for whitelisted domains.<br>
+                    you'll be able to uwuify sites manually even if this is off
+                </span>
+            </div>
         </div>
-        <br><hr><br>
-        <div class="pref-section">
-            <span class="main_detail">Shortcuts</span>
-            <br><br>
-            <label>
-                <input type="text" class="link display" value="ctrl+shift+U" readonly>
-                to uwuify page
-            </label>
-            <br><br>
-            <span class="info-detail">
-                Use the Command key instead of ctrl if you're on Mac
-            </span>
+        <div class="pref-section" id="ps_moreuwu">
+            <div class="main_detail">More uwuifying<span id="uwu_amount"></span></div>
+            <div class="main_setting">
+                <h1>More uwuifying</h1>
+                <label>
+                    <input type="button" class="link" id="enable_moreuwu_btn" value="on">
+                </label>
+                <label>
+                    <input type="button" class="link" id="disable_moreuwu_btn" value="off">
+                </label>
+                <br><br>
+                <span class="info-detail">
+                    when uwuifying, add phrases like "uwu" or "nya!" to the end of sentences sometimes<br>
+                    this may excessively modify text when manually uwuifying multiple times in a row
+                </span>
+            </div>
         </div>
-        <br><hr><br>
-            <span class="main_description">
-                settings are applied individually, but you may have to refresh tabs to populate changes
-            </span><br>
-        <br><br>
-        <input type="button" class="link nw" id="close_prefs_btn" value="close">
-    </div>
-    <div class="footer">
-        <a class="footer_link" target="_blank" href="https://willowyx.dev/projects/uwuify">docs</a>
-        <a class="footer_link" target="_blank" href="https://github.com/willowyx/uwuify-doer">github</a>
+        <div class="pref-section" id="ps_enwarn">
+            <div class="main_detail">Re-enable warnings</div>
+            <div class="main_setting">
+                <h1>Re-enable warnings</h1>
+                <label>
+                    <input type="button" class="link" id="enable_warning" value="reset warnings">
+                </label>
+                <br><br>
+                <span class="info-detail">
+                    if you clicked "don't show again" on a warning dialog
+                </span>
+            </div>
+        </div>
+        <div class="pref-section" id="ps_shortcuts">
+            <div class="main_detail">Shortcuts</div>
+            <div class="main_setting">
+                <h1>Shortcuts</h1>
+                <label>
+                    <input type="text" class="link display" value="unknown" readonly id="uwuify_hotkey_display">
+                    to uwuify page
+                </label>
+                <br><br>
+                <span class="info-detail">
+                    See
+                    <a target="_blank" class="alink nw" href="https://willowyx.dev/projects/uwuify#faq-keybinds">
+                        edit keybinds
+                    </a>
+                    for instructions on how to change extension shortcuts
+                </span>
+            </div>
+        </div>
+        <div class="pref-section" id="ps_shortcuts">
+            <div class="main_detail">Info</div>
+            <div class="main_setting">
+                <h1>Info</h1>
+                uwuify-doer ver. <span class="main_description" id="version_out"></span>
+                <br><br>
+                Distributed under the MIT License
+                <br><br>
+                [<a class="footer_link panel_footer" target="_blank" href="https://willowyx.dev/projects/uwuify">docs</a>
+                <a class="footer_link panel_footer" target="_blank" href="https://github.com/willowyx/uwuify-doer">github</a>
+                <a class="footer_link panel_footer" target="_blank" href="LICENSE">license</a>
+                <a class="footer_link panel_footer" target="_blank" href="init.html">init</a>
+                <a class="footer_link panel_footer" target="_blank" href="README.md">readme</a>]
+            </div>
+        </div>
     </div>
 
 </body>
+
 </html>
