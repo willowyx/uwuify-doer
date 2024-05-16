@@ -17,7 +17,7 @@ You can also turn off the perma-uwu mode so it only activates when you choose!
 ### Glad you asked!
 
 * perma-uwu mode
-* extra uwu mode
+* even more uwu mode
 * site whitelist
 * convenient keyboard shortcuts
 * profound sense of accomplishment(?)

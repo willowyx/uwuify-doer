@@ -1,6 +1,5 @@
 CURSOR: I couldn't find the original author from this reddit post: https://old.reddit.com/r/boykisser/comments/18g82vb/boykisser_cursors_lol/
-MODIFIED CURSOR: I modified the above cursor for pointer variants and the extension icon
-
+MODIFIED CURSOR: I modified the above cursor for the extension icon
 --
 
 If there is anything wrong with the attributions or content, let me know

@@ -1,9 +1,9 @@
 var api = typeof browser !== 'undefined' ? browser : chrome;
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
     console.log('Started prefshandler.js');
     connect_prefs();
-    populate_prefs();
+    await populate_prefs();
 });
 
 function connect_prefs() {
@@ -18,32 +18,33 @@ function connect_prefs() {
     const refresh_wl_btn = document.getElementById('refresh_whitelist_btn');
     const clear_wl_btn = document.getElementById('clear_whitelist_btn');
     const apply_wl_btn = document.getElementById('apply_whitelist_btn');
+    const mv3_btn = document.getElementById('mv3_permissions_btn');
 
     if (uwu_on_btn) {
-        uwu_on_btn.addEventListener('click', () => {
+        uwu_on_btn.addEventListener('click', async () => {
             enableUwuify();
-            populate_prefs();
+            await populate_prefs();
         });
     }
 
     if (uwu_off_btn) {
-        uwu_off_btn.addEventListener('click', () => {
+        uwu_off_btn.addEventListener('click', async () => {
             disableUwuify();
-            populate_prefs();
+            await populate_prefs();
         });
     }
 
     if (moreuwu_on_btn) {
-        moreuwu_on_btn.addEventListener('click', () => {
+        moreuwu_on_btn.addEventListener('click', async () => {
             enable_moreuwu();
-            populate_prefs();
+            await populate_prefs();
         });
     }
 
     if (moreuwu_off_btn) {
-        moreuwu_off_btn.addEventListener('click', () => {
+        moreuwu_off_btn.addEventListener('click', async () => {
             disable_moreuwu();
-            populate_prefs();
+            await populate_prefs();
         });
     }
 
@@ -61,38 +62,54 @@ function connect_prefs() {
 
     if (get_wl_btn) {
         get_wl_btn.addEventListener('click', () => {
-            window.open('whitelist.html', 'whitelist_window', 'width=500,height=600');
+            window.location.href = 'whitelist.html';
         });
     }
 
     if (close_wl_btn) {
-        close_wl_btn.addEventListener('click', () => {
-            window.close();
+        close_wl_btn.addEventListener('click', async () => {
+            await addToWhitelist(document.getElementById('whitelist_output').value).then(() => {
+                window.location.href = 'prefs.html';
+            });
         });
     }
 
     if (refresh_wl_btn) {
-        refresh_wl_btn.addEventListener('click', () => {
-            populateWhitelist();
+        refresh_wl_btn.addEventListener('click', async () => {
+            await populateWhitelist();
         });
     }
 
     if (apply_wl_btn) {
-        apply_wl_btn.addEventListener('click', () => {
-            addToWhitelist(document.getElementById('whitelist_output').value);
+        apply_wl_btn.addEventListener('click', async () => {
+            await applyWhitelist();
         });
     }
 
     if (clear_wl_btn) {
-        clear_wl_btn.addEventListener('click', () => {
-            clearWhitelist();
-            populateWhitelist();
+        clear_wl_btn.addEventListener('click', async () => {
+            await clearWhitelist();
+            await populateWhitelist();
         });
+    }
+
+    if (mv3_btn) {
+        mv3_btn.addEventListener('click', async () => {
+            const granted = await api.permissions.request({ origins: ["<all_urls>"] });
+            if (granted) {
+                console.log('Permission granted');
+                hide_mv3_main();
+            } else {
+                alert('[Permission denied] You can always enable this later!');
+            }
+        });
+        if (getBrowserType() == 'Chrome') {
+            hide_mv3_main();
+        }
     }
 }
 
-function populate_prefs() {
-    const uwuify_hk_out = document.getElementById('uwuify_hotkey_display');
+async function populate_prefs() {
     const version_out = document.getElementById('version_out');
     const ps_parents = document.querySelectorAll('.pref-section');
 
@@ -103,7 +120,7 @@ function populate_prefs() {
         if (uwuStateInfo) {
             uwuStateInfo.innerText = value === true || value === undefined ? 'on' : 'off';
         }
-        if(uwuify_on_btn && uwuify_off_btn) {
+        if (uwuify_on_btn && uwuify_off_btn) {
             uwuify_on_btn.style.border = value === true || value === undefined ? '1px solid rgb(238, 238, 238)' : '1px solid rgba(0,0,0,0)';
             uwuify_off_btn.style.border = value === false ? '1px solid rgb(238, 238, 238)' : '1px solid rgba(0,0,0,0)';
         }
@@ -121,31 +138,24 @@ function populate_prefs() {
         }
     });
 
-    if (uwuify_hk_out) {
-        var manifest = api.runtime.getManifest();
-        var uwuify_hotkey = manifest.commands.call_uwuify_kb.suggested_key.linux;
-        uwuify_hk_out.value = uwuify_hotkey;
-    }
-
     if (version_out) {
         var manifest = api.runtime.getManifest();
         version_out.innerText = manifest.version;
     }
 
-    ps_parents.forEach(function(ps_parent) {
-    var main_detail = ps_parent.querySelector('.main_detail');
-    if (main_detail) {
-        main_detail.addEventListener('click', function() {
-            var main_setting_all = document.querySelectorAll('.main_setting');
-            main_setting_all.forEach(function(setting) {
-                setting.style.display = 'none';
+    ps_parents.forEach(function (ps_parent) {
+        var main_detail = ps_parent.querySelector('.main_detail');
+        if (main_detail) {
+            main_detail.addEventListener('click', function () {
+                var main_setting_all = document.querySelectorAll('.main_setting');
+                main_setting_all.forEach(function (setting) {
+                    setting.style.display = 'none';
+                });
+                this.nextElementSibling.style.display = 'inline-block';
             });
-            this.nextElementSibling.style.display = 'inline-block';
-        });
-    }
-});
-
-    populateWhitelist();
+        }
+    });
+    await populateWhitelist();
 }
 
 function enableUwuify() {
@@ -196,7 +206,11 @@ function getWhitelist() {
     });
 }
 
-function populateWhitelist() {
+async function applyWhitelist() {
+    await addToWhitelist(document.getElementById('whitelist_output').value);
+}
+
+async function populateWhitelist() {
     getWhitelist().then(whitelist => {
         const wl_output = document.getElementById('whitelist_output');
         if (wl_output) {
@@ -206,7 +220,7 @@ function populateWhitelist() {
     });
 }
 
-function addToWhitelist(domains) {
+async function addToWhitelist(domains) {
     let domainArray = domains.split(',');
     getWhitelist().then(whitelist => {
         let newWhitelist = [];
@@ -227,10 +241,10 @@ function addToWhitelist(domains) {
     });
 }
 
-function clearWhitelist() {
-    if (confirm('Are you sure you want to delete all whitelist entries?')) {
+async function clearWhitelist() {
+    if (confirm('Delete all whitelist entries?')) {
         api.storage.sync.set({ 'whitelist': '' }, function () {
-            logWhitelist('whitelist cleared');
+            // logWhitelist('whitelist cleared');
         });
     }
 }
@@ -239,6 +253,26 @@ function logWhitelist(data) {
     const wl_logoutput = document.getElementById('whitelist_status_output');
     if (wl_logoutput) {
         wl_logoutput.value = data;
+    }
+}
+
+function getBrowserType() {
+    const userAgent = navigator.userAgent;
+    if (/Firefox/i.test(userAgent)) {
+        return 'Firefox';
+    } else if (/Chrome/i.test(userAgent)) {
+        return 'Chrome';
+    }
+}
+
+function hide_mv3_main() {
+    const mv3_main = document.getElementById('mv3_main');
+    const mv3_complete = document.getElementById('mv3_complete');
+    if (mv3_main) {
+        mv3_main.style.display = 'none';
+    }
+    if (mv3_complete) {
+        mv3_complete.style.display = 'inline-block';
     }
 }
 

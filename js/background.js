@@ -24,12 +24,10 @@ api.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 });
 
-api.runtime.onInstalled.addListener(() => {
-    api.commands.onCommand.addListener((command) => {
-        if (command === "call_uwuify_kb") {
-            api.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-                api.tabs.sendMessage(tabs[0].id, { action: "call_uwuify" });
-            });
-        }
-    });
+api.commands.onCommand.addListener((command) => {
+    if (command === "call_uwuify_kb") {
+        api.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            api.tabs.sendMessage(tabs[0].id, { action: "call_uwuify" });
+        });
+    }
 });
