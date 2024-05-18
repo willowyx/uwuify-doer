@@ -19,6 +19,7 @@ function connect_prefs() {
     const clear_wl_btn = document.getElementById('clear_whitelist_btn');
     const apply_wl_btn = document.getElementById('apply_whitelist_btn');
     const mv3_btn = document.getElementById('mv3_permissions_btn');
+    const mv3_sbtn = document.getElementById('mv3_permissions_sbtn');
 
     if (uwu_on_btn) {
         uwu_on_btn.addEventListener('click', async () => {
@@ -69,7 +70,7 @@ function connect_prefs() {
     if (close_wl_btn) {
         close_wl_btn.addEventListener('click', async () => {
             await addToWhitelist(document.getElementById('whitelist_output').value).then(() => {
-                window.location.href = 'prefs.html';
+                history.back();
             });
         });
     }
@@ -97,7 +98,7 @@ function connect_prefs() {
         mv3_btn.addEventListener('click', async () => {
             const granted = await api.permissions.request({ origins: ["<all_urls>"] });
             if (granted) {
-                console.log('Permission granted');
+                alert('[Permission granted] Initialization complete!');
                 hide_mv3_main();
             } else {
                 alert('[Permission denied] You can always enable this later!');
@@ -106,6 +107,12 @@ function connect_prefs() {
         if (getBrowserType() == 'Chrome') {
             hide_mv3_main();
         }
+    }
+
+    if(mv3_sbtn) {
+        mv3_sbtn.addEventListener('click', () => {
+            mv3_btn.click();
+        });
     }
 }
 
@@ -268,9 +275,11 @@ function getBrowserType() {
 function hide_mv3_main() {
     const mv3_main = document.getElementById('mv3_main');
     const mv3_complete = document.getElementById('mv3_complete');
+
     if (mv3_main) {
         mv3_main.style.display = 'none';
     }
+
     if (mv3_complete) {
         mv3_complete.style.display = 'inline-block';
     }

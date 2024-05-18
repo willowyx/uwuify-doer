@@ -37,12 +37,6 @@
 
         .footer {
             background: rgb(121, 31, 115);
-            padding: 10px 20px;
-            text-align: center;
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
         }
 
         .link {
@@ -52,12 +46,6 @@
 
         .main_setting {
             background-color: rgb(238, 138, 225);
-        }
-
-        .footer_link {
-            padding: 5px;
-            text-decoration: none;
-            color: #fff;
         }
 
         @media screen and (max-width: 600px) {
@@ -90,23 +78,21 @@
         </div>
         <div id="mv3_complete" style="display: none;">
             <h2>
-                uwuify is ready to go. If you need help, check out the Help menu or send me an email!
+                uwuify is ready to go. If you need help,
+                check out the Help menu or send me an email!
             </h2>
         </div>
 
     </div>
-    <div class="container prefmain-container">
-        <div class="pref-section">
-            <h2>Welcome to uwuify!</h2>
-        </div>
-        <br><br>
+    <div class="container">
         <div class="pref-section" id="ps_updatenews">
             <div class="main_detail">What's new</div>
             <div class="main_setting">
                 <h1>What's new</h1>
 
-                <h4>-Fixed Firefox permissions issue</h4> user is prompted upon install/update to grant necessary
-                permissions
+                <h4>Note</h4> This is a small update that mainly fixes issues on Firefox for Android, so I'm going to
+                skip the Chrome release for this patch and bundle it with a larger update later on.
+
                 <h4>-Firefox for Android support</h4> I figured this would be a good time with the updated UI
                 <h4>-Prefs/init formatting changes!</h4> init is more in line with prefs now, changed layout for small
                 viewports
@@ -141,7 +127,7 @@
                 to grant these permissions. You can still use the extension without granting these
                 permissions but functionality will be very limited.
                 <br><br>
-                <a class="link" id="mv3_permissions_btn">Request permissions</a>
+                <a class="link" id="mv3_permissions_sbtn">Request permissions</a>
                 <br><br>
                 uwuify is open-source and collects no data!
             </div>
@@ -175,6 +161,9 @@
                     <a class="footer_link" target="_blank" href="LICENSE">license</a>
                     <a class="footer_link" target="_blank" href="README.md">readme</a>
                 </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 

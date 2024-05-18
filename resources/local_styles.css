@@ -12,7 +12,13 @@ body {
 .container {
     padding: 20px;
     flex-wrap: wrap;
-    padding-bottom: 40px;
+    margin-top: 7vh;
+}
+
+.container.main {
+    padding: 20px;
+    flex-wrap: wrap;
+    margin-top: 0;
 }
 
 .link {
@@ -51,9 +57,15 @@ body {
 .header {
     background: #004d57;
     font-size: 1.3em;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
     height: 7vh;
-    font-weight: bold;
+    z-index: 9;
     display: flex;
+    min-height: 50px;
+    font-weight: bold;
     align-items: center;
     justify-content: center;
 }
@@ -89,8 +101,8 @@ hr {
 }
 
 .main_detail {
-    width: 30%;
-    height: 10vh;
+    width: 35%;
+    height: 10%;
     padding: 10px;
     display: flex;
     font-size: 1.5em;
@@ -107,23 +119,29 @@ hr {
 
 .main_setting {
     position: fixed;
-    top: 7vh;
+    top: 0;
     right: 0;
     left: 50%;
     bottom: 0;
+    z-index: 1;
     padding: 35px;
-    margin-bottom: 3vh;
     display: none;
     overflow: auto;
+    margin-top: 7vh;
+    margin-bottom: 5vh;
     border-left: 3px solid #fff;
+    background-color: #4d878f;
 }
 
 .footer {
     background: #004d57;
-    height: 3vh;
+    padding: 10px 20px;
     left: 0;
     right: 0;
     bottom: 0;
+    height: 3vh;
+    min-height: 25px;
+    z-index: 9;
     position: fixed;
     display: flex;
     align-items: center;
@@ -131,12 +149,15 @@ hr {
 }
 
 .footer.main {
+    position: relative;
     height: fit-content;
     padding: 2%;
 }
 
 .header.main {
+    position: relative;
     height: fit-content;
+    min-height: 40px;
     padding: 3%;
 }
 
@@ -168,21 +189,8 @@ hr {
 
     .main_detail {
         width: 90%;
-        height: 10%;
-        padding: 10px;
         cursor: pointer;
-        font-size: 1.5em;
         transition: border 0.3s;
-        border: 1px solid rgba(0, 0, 0, 0);
-    }
-
-    .prefmain-container {
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 7vh;
-        bottom: 50%;
-        overflow-y: scroll;
     }
 
     .main_detail:hover {
@@ -194,12 +202,7 @@ hr {
         top: 50%;
         right: 0;
         left: 0;
-        bottom: 0;
-        padding: 35px;
         padding-bottom: 5vh;
-        display: none;
-        overflow: auto;
-        background: #4d878f;
         border-left: none;
         border-top: 3px solid #fff;
     }

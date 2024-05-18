@@ -1,6 +1,14 @@
-CURSOR: I couldn't find the original author from this reddit post: https://old.reddit.com/r/boykisser/comments/18g82vb/boykisser_cursors_lol/
-MODIFIED CURSOR: I modified the above cursor for the extension icon
---
+EXTENSION ICON: I slightly modified the cursor icon from https://old.reddit.com/r/boykisser/comments/18g82vb/boykisser_cursors_lol/
+I couldn't find the original author from this reddit post, pls let me know if you know who it is :3
 
-If there is anything wrong with the attributions or content, let me know
-and I will update your credits or remove your content if you wish!
+---
+
+DOCS HEADER ("Klee") https://www.deviantart.com/devsniiwy/art/Anime-GFX-Wallpaper-FX-885816257
+by DevSniiwy (https://www.deviantart.com/devsniiwy/)
+
+---
+
+If there is anything wrong with the attributions or content,
+or if you want me to stop using your content, please let me know!
+
+(attributions updated 5/17/24)
