@@ -131,29 +131,32 @@ const modalCSS = `
     position: fixed;
     z-index: 1000;
     bottom: 0;
+    left: 0;
     right: 0;
-    width: 25%;
     margin: 0;
-    display: none;
+    width: 100%;
     height: fit-content;
+    max-height: 50%;
+    display: none;
+    text-align: center;
     
 }
 #warn-layout-modal .modal-content {
-    background: rgba(55, 142, 163, .7);
+    background: rgba(55, 164, 164, .9);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     padding: 20px;
-    border-top-left-radius: 5px;
-    max-width: 500px;
-    width: 90%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
     color: #fff;
     font-size: 1.2em;
     padding-bottom: 15%;
 }
 button#confirm-button, button#cancel-button {
-    background: #2c8577;
+    background: #1f7a77;
     color: white;
     border: none;
     padding: 15px 20px;
