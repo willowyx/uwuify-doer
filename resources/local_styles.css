@@ -24,7 +24,7 @@ body {
 .link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: rgb(206, 129, 196);
+    background: rgb(206, 129, 196);
     color: #ffffff;
     font-size: 16px;
     text-align: center;
@@ -35,7 +35,7 @@ body {
 }
 
 .link:active {
-    background-color: rgba(85, 98, 105, 0.5);
+    background: rgba(85, 98, 105, 0.5);
     border: 1px solid rgb(0, 77, 77);
 }
 
@@ -44,12 +44,12 @@ body {
 }
 
 .link.nw {
-    background-color: rgb(0, 77, 77);
+    background: rgb(0, 77, 77);
     color: #ffffff;
 }
 
 .link.display {
-    background-color: rgb(206, 129, 196);
+    background: rgb(206, 129, 196);
     color: #ffffff;
     cursor: auto;
 }
@@ -68,6 +68,7 @@ body {
     font-weight: bold;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid #abc1cf;
 }
 
 hr {
@@ -86,18 +87,86 @@ hr {
 .textinput {
     display: inline-block;
     padding: 5px 10px;
-    background-color: rgb(205, 220, 230);
+    background: rgb(205, 220, 230);
     font-size: 12px;
     text-align: left;
     width: 35%;
     min-width: 150px;
     text-decoration: none;
     border: 1px solid rgba(0, 0, 0, 0);
+    color: #fff;
 }
 
 .alink {
     color: #fff;
     text-decoration: underline;
+}
+
+.nightbtn {
+    background: #994787;
+    color: #ffdda9;
+    border: 1px solid #ffdda9;
+}
+
+.rainbtn {
+    background: #34495E;
+    color: #fff;
+    border: 1px solid #94afb1;
+}
+
+.nightbtn:active,.nbtndefault:active {
+    border: 1px solid #ffdda9;
+}
+
+.velvetbtn,.velvetbtndefault:not(.transbtndefault) {
+    border: 1px solid transparent;
+    border-image: linear-gradient(to bottom right, #fd1892 0%, #fec837 25%, #b8fd33 50%, #2c90fc 75%, #b827fc 100%);
+    border-image-slice: 1;
+    background: #7d00a3;
+}
+
+.velvetbtn:active,.velvetbtndefault:active:not(.transbtndefault:active) {
+    background: rgba(85, 98, 105, 0.5);
+    border: 1px solid transparent;
+    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
+    color: #fff;
+}
+
+.transbtn,.transbtndefault:not(.velvetbtndefault) {
+    border: 1px solid transparent;
+    border-image: linear-gradient(to bottom right, #F5A9B8 0%, #ffffff 25%, #5BCEFA 50%, #ffffff 75%, #F5A9B8 100%);
+    border-image-slice: 1;
+    background: #35b499;
+}
+
+.transbtn:active,.transbtndefault:active:not(.velvetbtndefault:active) {
+    background: rgba(85, 98, 105, 0.5);
+    border: 1px solid transparent;
+    border-image: linear-gradient(to bottom right, #5BCEFA 0%, #ffffff 25%, #F5A9B8 50%, #ffffff 75%, #5BCEFA 100%);
+    border-image-slice: 1;
+}
+
+.nbtndefault {
+    background: rgb(31, 37, 90);
+    color: #ffdda9;
+    border: 1px solid #ffdda9;
+}
+
+.raindefault {
+    background: #34495E;
+    color: #fff;
+}
+
+.rainbtn:active {
+    background: #233547;
+    border: 1px solid #86a0a1;
+}
+
+.accdefault {
+    background: rgb(206, 129, 196);
+    color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0);
 }
 
 .main_detail {
@@ -129,8 +198,32 @@ hr {
     overflow: auto;
     margin-top: 7vh;
     margin-bottom: 5vh;
-    border-left: 3px solid #fff;
-    background-color: #4d878f;
+    border-left: 1px solid #fff;
+    background: #4d878f;
+}
+
+.nightbg {
+    background: rgb(29, 29, 29);
+    color: #ffdda9;
+}
+
+.rainbg {
+    background: #2b4a50;
+    color: #abc1cf;
+}
+
+.rainbg.main_setting {
+    border-left: 1px solid #abc1cf;
+}
+
+.velvetbg {
+    background: #3b004d;
+    color: #ffdda9;
+}
+
+.transbg {
+    background: #0ea0cc;
+    color: #fff;
 }
 
 .footer {
@@ -146,6 +239,7 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-top: 1px solid #abc1cf;
 }
 
 .footer.main {
@@ -170,6 +264,23 @@ hr {
 
 .panel_footer {
     color: rgb(255, 185, 246);
+}
+
+.hidden-noint {
+    display: none;
+}
+
+#notif_main {
+    position: fixed;
+    top: 5%;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    padding: 5%;
+    border: 1px solid #fff;
+    background: #073238;
+    z-index: 99;
+    cursor: default;
 }
 
 @media screen and (max-width: 800px) {
