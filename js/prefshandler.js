@@ -267,9 +267,6 @@ function applytheme(theme) {
         Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
             el.classList.add('nightbg');
         });
-        Array.from(document.getElementsByTagName('a')).forEach(function (el) {
-            el.style.color = '#ffdda9';
-        });
         api.storage.sync.set({ prefs_themepreset: 'nocturne' });
     }
     if (theme == 'downpour') {
@@ -280,17 +277,11 @@ function applytheme(theme) {
         Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
             el.classList.add('rainbg');
         });
-        Array.from(document.getElementsByTagName('a')).forEach(function (el) {
-            el.style.color = '#abc1cf';
-        });
         api.storage.sync.set({ prefs_themepreset: 'downpour' });
     }
     if (theme == 'velvet') {
         Array.from(document.getElementsByTagName('input')).forEach(function (el) {
             el.classList.add('velvetbtn');
-        });
-        Array.from(document.getElementsByTagName('a')).forEach(function (el) {
-            el.style.color = '#ffdda9';
         });
         document.body.classList.add('velvetbg');
         Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
