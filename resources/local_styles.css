@@ -118,6 +118,11 @@ hr {
     border: 1px solid #ffdda9;
 }
 
+.rainbtn:active,.raindefault:active {
+    background: #233547;
+    border: 1px solid #86a0a1;
+}
+
 .velvetbtn,.velvetbtndefault:not(.transbtndefault) {
     border: 1px solid transparent;
     border-image: linear-gradient(to bottom right, #fd1892 0%, #fec837 25%, #b8fd33 50%, #2c90fc 75%, #b827fc 100%);
@@ -156,16 +161,12 @@ hr {
 .raindefault {
     background: #34495E;
     color: #fff;
-}
-
-.rainbtn:active {
-    background: #233547;
-    border: 1px solid #86a0a1;
+    border: 1px solid #94afb1;
 }
 
 .accdefault {
     background: rgb(206, 129, 196);
-    color: #ffffff;
+    color: #fff;
     border: 1px solid rgba(0, 0, 0, 0);
 }
 
