@@ -26,6 +26,7 @@ function connect_prefs() {
     const accent_velvet = document.getElementById('accent_velvet');
     const accent_trans = document.getElementById('accent_trans');
     const notif_main = document.getElementById('notif_main');
+    const notif_mainbtn = document.getElementById('notif_mainbtn');
 
     if (uwu_on_btn) {
         uwu_on_btn.addEventListener('click', async () => {
@@ -133,7 +134,12 @@ function connect_prefs() {
     if (notif_main) {
         notif_main.addEventListener('click', () => {
             notif_main.classList.add('hidden-noint');
-            api.storage.sync.set({ main_notif_allow: false });
+        });
+    }
+
+    if (notif_mainbtn) {
+        notif_mainbtn.addEventListener('click', () => {
+            notif_main.classList.remove('hidden-noint');
         });
     }
 
@@ -222,13 +228,6 @@ async function populate_prefs() {
         }
     });
 
-    const notif_main = document.getElementById('notif_main');
-    if (notif_main) {
-        if ((await getState('main_notif_allow')) !== false) {
-            document.getElementById('notif_main').classList.remove('hidden-noint');
-        }
-    }
-
     await populateWhitelist();
 }
 
@@ -238,9 +237,6 @@ function resetTheme() {
         el.classList.remove('rainbtn');
         el.classList.remove('velvetbtn');
         el.classList.remove('transbtn');
-    });
-    Array.from(document.getElementsByTagName('a')).forEach(function (el) {
-        el.style.color = '#fff';
     });
     Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
         el.classList.remove('velvetbg');
@@ -335,7 +331,6 @@ function disable_moreuwu() {
 
 function resetWarnings() {
     api.storage.sync.set({ hideLayoutModal: false });
-    api.storage.sync.set({ main_notif_allow: true });
 }
 
 function getWhitelist() {

@@ -279,9 +279,14 @@ hr {
     right: 5%;
     padding: 5%;
     border: 1px solid #fff;
-    background: #073238;
+    background: #45646d;
     z-index: 99;
     cursor: default;
+    border-radius: 5px;
+}
+
+#notif_mainbtn {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {
