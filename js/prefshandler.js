@@ -177,20 +177,20 @@ async function populate_prefs() {
             uwuStateInfo.innerText = value === true || value === undefined ? 'on' : 'off';
         }
         if (uwuify_on_btn && uwuify_off_btn) {
-            uwuify_on_btn.style.border = value === true || value === undefined ? '1px solid rgb(238, 238, 238)' : '1px solid rgba(0,0,0,0)';
-            uwuify_off_btn.style.border = value === false ? '1px solid rgb(238, 238, 238)' : '1px solid rgba(0,0,0,0)';
+            uwuify_on_btn.style.border = value === true || value === undefined ? '1px solid rgb(238, 238, 238)' : '1px solid rgb(0,0,0,.3)';
+            uwuify_off_btn.style.border = value === false ? '1px solid rgb(238, 238, 238)' : '1px solid rgb(0,0,0,.3)';
         }
     });
     getState('prefs_moreuwu').then(value => {
         const uwu_amount_info = document.getElementById('uwu_amount');
+        const enable_moreuwu_btn = document.getElementById('enable_moreuwu_btn');
+        const disable_moreuwu_btn = document.getElementById('disable_moreuwu_btn');
         if (uwu_amount_info) {
             uwu_amount_info.innerText = value === true ? 'on' : 'off';
-
-            const enable_moreuwu_btn = document.getElementById('enable_moreuwu_btn');
-            enable_moreuwu_btn.style.border = value === true ? '1px solid rgb(238, 238, 238)' : '1px solid rgba(0,0,0,0)';
-
-            const disable_moreuwu_btn = document.getElementById('disable_moreuwu_btn');
-            disable_moreuwu_btn.style.border = value === false || value === undefined ? '1px solid rgb(238, 238, 238)' : '1px solid rgba(0,0,0,0)';
+        }
+        if (enable_moreuwu_btn && disable_moreuwu_btn) {
+            enable_moreuwu_btn.style.border = value === true ? '1px solid rgb(238, 238, 238)' : '1px solid rgb(0,0,0,.3)';
+            disable_moreuwu_btn.style.border = value === false || value === undefined ? '1px solid rgb(238, 238, 238)' : '1px solid rgb(0,0,0,.3)';
         }
     });
     getState('prefs_themepreset').then(value => {
@@ -251,49 +251,51 @@ function resetTheme() {
 }
 
 function applytheme(theme) {
-    resetTheme();
-    if (theme == 'default') {
-        api.storage.sync.set({ prefs_themepreset: 'default' });
-    }
-    if (theme == 'nocturne') {
-        Array.from(document.getElementsByTagName('input')).forEach(function (el) {
-            el.classList.add('nightbtn');
-        });
-        document.body.classList.add('nightbg');
-        Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
-            el.classList.add('nightbg');
-        });
-        api.storage.sync.set({ prefs_themepreset: 'nocturne' });
-    }
-    if (theme == 'downpour') {
-        Array.from(document.getElementsByTagName('input')).forEach(function (el) {
-            el.classList.add('rainbtn');
-        });
-        document.body.classList.add('rainbg');
-        Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
-            el.classList.add('rainbg');
-        });
-        api.storage.sync.set({ prefs_themepreset: 'downpour' });
-    }
-    if (theme == 'velvet') {
-        Array.from(document.getElementsByTagName('input')).forEach(function (el) {
-            el.classList.add('velvetbtn');
-        });
-        document.body.classList.add('velvetbg');
-        Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
-            el.classList.add('velvetbg');
-        });
-        api.storage.sync.set({ prefs_themepreset: 'velvet' });
-    }
-    if (theme == 'trans') {
-        Array.from(document.getElementsByTagName('input')).forEach(function (el) {
-            el.classList.add('transbtn');
-        });
-        document.body.classList.add('transbg');
-        Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
-            el.classList.add('transbg');
-        });
-        api.storage.sync.set({ prefs_themepreset: 'trans' });
+    if (checkExtensionCurrent()) {
+        resetTheme();
+        if (theme == 'default') {
+            api.storage.sync.set({ prefs_themepreset: 'default' });
+        }
+        if (theme == 'nocturne') {
+            Array.from(document.getElementsByTagName('input')).forEach(function (el) {
+                el.classList.add('nightbtn');
+            });
+            document.body.classList.add('nightbg');
+            Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
+                el.classList.add('nightbg');
+            });
+            api.storage.sync.set({ prefs_themepreset: 'nocturne' });
+        }
+        if (theme == 'downpour') {
+            Array.from(document.getElementsByTagName('input')).forEach(function (el) {
+                el.classList.add('rainbtn');
+            });
+            document.body.classList.add('rainbg');
+            Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
+                el.classList.add('rainbg');
+            });
+            api.storage.sync.set({ prefs_themepreset: 'downpour' });
+        }
+        if (theme == 'velvet') {
+            Array.from(document.getElementsByTagName('input')).forEach(function (el) {
+                el.classList.add('velvetbtn');
+            });
+            document.body.classList.add('velvetbg');
+            Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
+                el.classList.add('velvetbg');
+            });
+            api.storage.sync.set({ prefs_themepreset: 'velvet' });
+        }
+        if (theme == 'trans') {
+            Array.from(document.getElementsByTagName('input')).forEach(function (el) {
+                el.classList.add('transbtn');
+            });
+            document.body.classList.add('transbg');
+            Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
+                el.classList.add('transbg');
+            });
+            api.storage.sync.set({ prefs_themepreset: 'trans' });
+        }
     }
 }
 
@@ -388,6 +390,13 @@ function logWhitelist(data) {
     const wl_logoutput = document.getElementById('whitelist_status_output');
     if (wl_logoutput) {
         wl_logoutput.value = data;
+    }
+}
+
+function checkExtensionCurrent() {
+    const url = window.location.href;
+    if (url.startsWith('chrome-extension:') || url.startsWith('moz-extension:')) {
+        return true;
     }
 }
 

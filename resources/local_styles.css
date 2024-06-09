@@ -29,7 +29,7 @@ body {
     font-size: 16px;
     text-align: center;
     text-decoration: none;
-    border: 1px solid rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, .5);
     border-radius: 3px;
     cursor: pointer;
 }
@@ -88,6 +88,7 @@ hr {
     display: inline-block;
     padding: 5px 10px;
     background: rgb(46, 153, 139);
+    background-color: rgb(46, 153, 139);
     font-size: 12px;
     text-align: left;
     width: 35%;
