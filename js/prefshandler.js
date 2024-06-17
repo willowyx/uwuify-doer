@@ -2,6 +2,9 @@ var api = typeof browser !== 'undefined' ? browser : chrome;
 
 document.addEventListener('DOMContentLoaded', async function () {
     console.log('Started prefshandler.js');
+    getState('prefs_themepreset').then(value => {
+        applytheme(value);
+    });
     connect_prefs();
     await populate_prefs();
 });
@@ -193,23 +196,6 @@ async function populate_prefs() {
             disable_moreuwu_btn.style.border = value === false || value === undefined ? '1px solid rgb(238, 238, 238)' : '1px solid rgb(0,0,0,.3)';
         }
     });
-    getState('prefs_themepreset').then(value => {
-        if (value === 'nocturne') {
-            applytheme('nocturne');
-        }
-        if (value === 'downpour') {
-            applytheme('downpour');
-        }
-        if (value === 'velvet') {
-            applytheme('velvet');
-        }
-        if (value === 'trans') {
-            applytheme('trans');
-        }
-        if (value === 'default') {
-            applytheme('default');
-        }
-    });
     if (version_out) {
         var manifest = api.runtime.getManifest();
         version_out.innerText = manifest.version;
@@ -255,8 +241,7 @@ function applytheme(theme) {
         resetTheme();
         if (theme == 'default') {
             api.storage.sync.set({ prefs_themepreset: 'default' });
-        }
-        if (theme == 'nocturne') {
+        } else if (theme == 'nocturne') {
             Array.from(document.getElementsByTagName('input')).forEach(function (el) {
                 el.classList.add('nightbtn');
             });
@@ -265,8 +250,7 @@ function applytheme(theme) {
                 el.classList.add('nightbg');
             });
             api.storage.sync.set({ prefs_themepreset: 'nocturne' });
-        }
-        if (theme == 'downpour') {
+        } else if (theme == 'downpour') {
             Array.from(document.getElementsByTagName('input')).forEach(function (el) {
                 el.classList.add('rainbtn');
             });
@@ -275,8 +259,7 @@ function applytheme(theme) {
                 el.classList.add('rainbg');
             });
             api.storage.sync.set({ prefs_themepreset: 'downpour' });
-        }
-        if (theme == 'velvet') {
+        } else if (theme == 'velvet') {
             Array.from(document.getElementsByTagName('input')).forEach(function (el) {
                 el.classList.add('velvetbtn');
             });
@@ -285,8 +268,7 @@ function applytheme(theme) {
                 el.classList.add('velvetbg');
             });
             api.storage.sync.set({ prefs_themepreset: 'velvet' });
-        }
-        if (theme == 'trans') {
+        }else if (theme == 'trans') {
             Array.from(document.getElementsByTagName('input')).forEach(function (el) {
                 el.classList.add('transbtn');
             });
@@ -295,6 +277,8 @@ function applytheme(theme) {
                 el.classList.add('transbg');
             });
             api.storage.sync.set({ prefs_themepreset: 'trans' });
+        } else {
+            console.log('invalid theme: ' + theme);
         }
     }
 }

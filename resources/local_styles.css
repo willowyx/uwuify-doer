@@ -98,6 +98,11 @@ hr {
     color: #fff;
 }
 
+.textinput::placeholder {
+    color: #fff;
+
+}
+
 .alink {
     color: #fff;
     text-decoration: underline;
@@ -214,10 +219,6 @@ hr {
     color: #abc1cf;
 }
 
-.rainbg.main_setting {
-    border-left: 1px solid #abc1cf;
-}
-
 .velvetbg {
     background: #3b004d;
     color: #ffdda9;
@@ -235,7 +236,7 @@ hr {
     right: 0;
     bottom: 0;
     height: 3vh;
-    min-height: 25px;
+    min-height: 35px;
     z-index: 9;
     position: fixed;
     display: flex;
