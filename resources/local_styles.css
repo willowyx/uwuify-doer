@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url(Montserrat-Light.ttf);
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -5,7 +14,6 @@ body {
     height: 100%;
     color: #fff;
     background: #4d878f;
-    font-family: 'Montserrat', sans-serif;
     font-size: 100%;
 }
 
