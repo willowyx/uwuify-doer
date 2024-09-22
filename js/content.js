@@ -186,7 +186,7 @@ const modalContent = document.createElement('div');
 modalContent.className = 'modal-content';
 
 const modalIcon = document.createElement('img');
-modalIcon.src = 'https://i.imgur.com/Su2xSJr.png';
+modalIcon.src = browser.runtime.getURL('resources/icon_info.png');
 modalIcon.id = 'modal-icon';
 modalIcon.alt = 'uwuify icon';
 
