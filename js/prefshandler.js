@@ -22,7 +22,6 @@ function connect_prefs() {
     const clear_wl_btn = document.getElementById('clear_whitelist_btn');
     const apply_wl_btn = document.getElementById('apply_whitelist_btn');
     const mv3_btn = document.getElementById('mv3_permissions_btn');
-    const mv3_sbtn = document.getElementById('mv3_permissions_sbtn');
     const accent_default = document.getElementById('accent_default');
     const accent_nocturne = document.getElementById('accent_night');
     const accent_downpour = document.getElementById('accent_downpour');
@@ -155,15 +154,6 @@ function connect_prefs() {
             } else {
                 alert('[Permission denied] You can always enable this later!');
             }
-        });
-        if (getBrowserType() == 'Chrome') {
-            hide_mv3_main();
-        }
-    }
-
-    if (mv3_sbtn) {
-        mv3_sbtn.addEventListener('click', () => {
-            mv3_btn.click();
         });
     }
 }
@@ -390,19 +380,6 @@ function getBrowserType() {
         return 'Firefox';
     } else if (/Chrome/i.test(userAgent)) {
         return 'Chrome';
-    }
-}
-
-function hide_mv3_main() {
-    const mv3_main = document.getElementById('mv3_main');
-    const mv3_complete = document.getElementById('mv3_complete');
-
-    if (mv3_main) {
-        mv3_main.style.display = 'none';
-    }
-
-    if (mv3_complete) {
-        mv3_complete.style.display = 'inline-block';
     }
 }
 

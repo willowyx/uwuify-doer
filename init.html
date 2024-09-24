@@ -77,25 +77,10 @@
 
     <div class="main_setting" style="display: inline-block;">
         <h1>hey there!</h1>
-        <div id="mv3_main">
-            <h4>If you're using Firefox, you'll have to grant uwuify permissions due to Firefox's
-                implementation of Manifest v3, an extension protocol. Chrome users don't need to
-                do this, as all necessary permissions are granted by default.
-                <br><br>
-                When you press the button below, Firefox will prompt you to grant these permissions.
-                For more information, select "Note for Firefox"
-            </h4>
-
-            <a class="link" id="mv3_permissions_btn">Request permissions</a>
-            <br><br>
-            uwuify is open-source and collects no data!
-        </div>
-        <div id="mv3_complete" style="display: none;">
-            <h3>
-                uwuify is ready to go!
-                also, quick note: you can turn off perma-uwu mode in the extension menu if you wish :3
-            </h3>
-        </div>
+        <h3>
+            uwuify is ready to go!
+            also, quick note: you can turn off perma-uwu mode in the extension menu if you wish :3
+        </h3>
     </div>
 
     <div class="container">
@@ -105,9 +90,10 @@
                 <h1>What's new</h1>
                 
                 <h4>-extension themes</h4> extension theme presets are now available!
-                <h4>-improved performance</h4> localized fonts & improved script serialization
+                <h4>-improved performance</h4> localized resources & improved script serialization
                 <h4>-other changes</h4>
-                -made a number of styling and content updates
+                -made a number of styling and content updates<br>
+                -updated init to reflect some browser changes
 
                 <h3>Looking for older update notes?</h3>
                 You can find the update log
@@ -122,17 +108,12 @@
             <div class="main_setting">
                 <h1>If you're using Firefox:</h1>
 
-                uwuify uses Manifest v3, and Firefox's implementation of it requires
-                that you (the user) manually grant it additional permissions, instead of
-                having them enabled by default when you install it. uwuify requires the permissions
-                "read and change your data for all sites" in order for most of its functionality
-                to work (uwuifying text automatically, whitelisting sites, etc.)
+                If you're using an older version of Firefox, you may have to grant uwuify permissions
+                due to Firefox's implementation of Manifest v3, an extension protocol.<br><br>
+                When you press the button below, Firefox will prompt you to grant these permissions.
+                You can enable this at any time, so no rush.
                 <br><br>
-                If you're okay with this, press the button below and you will be prompted by Firefox
-                to grant these permissions. You can still use the extension without granting these
-                permissions but functionality will be very limited.
-                <br><br>
-                <a class="link" id="mv3_permissions_sbtn">Request permissions</a>
+                <a class="link" id="mv3_permissions_btn">Request permissions</a>
                 <br><br>
                 uwuify is open-source and collects no data!
             </div>
