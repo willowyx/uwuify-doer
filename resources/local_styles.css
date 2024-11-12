@@ -76,6 +76,7 @@ body {
     font-weight: bold;
     align-items: center;
     justify-content: center;
+    color: #fff !important;
     border-bottom: 1px solid #abc1cf;
 }
 
@@ -118,13 +119,13 @@ hr {
 
 .nightbtn {
     background: #994787;
-    color: #ffdda9;
+    color: #ffdda9 !important;
     border: 1px solid #ffdda9;
 }
 
 .rainbtn {
     background: #34495E;
-    color: #fff;
+    color: #fff !important;
     border: 1px solid #94afb1;
 }
 
@@ -167,20 +168,20 @@ hr {
 }
 
 .nbtndefault {
-    background: rgb(31, 37, 90);
-    color: #ffdda9;
+    background: #010029;
+    color: #ffdda9 !important;
     border: 1px solid #ffdda9;
 }
 
 .raindefault {
     background: #34495E;
-    color: #fff;
+    color: #fff !important;
     border: 1px solid #94afb1;
 }
 
 .accdefault {
     background: rgb(206, 129, 196);
-    color: #fff;
+    color: #fff !important;
     border: 1px solid rgba(0, 0, 0, 0);
 }
 
@@ -251,6 +252,23 @@ hr {
     align-items: center;
     justify-content: center;
     border-top: 1px solid #abc1cf;
+}
+
+.header.nighthf, .footer.nighthf {
+    background: #010029;
+}
+
+.header.transhf, .footer.transhf {
+    background: #187c63;
+    /* background: #b39200; */
+}
+ 
+.header.velvethf, .footer.velvethf {
+    background: #3f1e6d;
+}
+
+input:hover ~ label.hlabel {
+    visibility: visible;
 }
 
 .footer.main {

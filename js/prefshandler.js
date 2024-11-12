@@ -149,10 +149,9 @@ function connect_prefs() {
         mv3_btn.addEventListener('click', async () => {
             const granted = await api.permissions.request({ origins: ["<all_urls>"] });
             if (granted) {
-                alert('[Permission granted] Initialization complete!');
-                hide_mv3_main();
+                alert('initialization is complete!');
             } else {
-                alert('[Permission denied] You can always enable this later!');
+                alert('[permission denied] you can always enable this later!');
             }
         });
     }
@@ -220,6 +219,11 @@ function resetTheme() {
         el.classList.remove('nightbg');
         el.classList.remove('rainbg');
     });
+    Array.from(document.querySelectorAll('.elheader')).forEach(function (el) {
+        el.classList.remove('transhf');
+        el.classList.remove('nighthf');
+        el.classList.remove('velvethf');
+    });
     document.body.classList.remove('nightbg');
     document.body.classList.remove('rainbg');
     document.body.classList.remove('velvetbg');
@@ -239,6 +243,9 @@ function applytheme(theme) {
             Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
                 el.classList.add('nightbg');
             });
+            Array.from(document.querySelectorAll('.elheader')).forEach(function (el) {
+                el.classList.add('nighthf');
+            });
             api.storage.sync.set({ prefs_themepreset: 'nocturne' });
         } else if (theme == 'downpour') {
             Array.from(document.getElementsByTagName('input')).forEach(function (el) {
@@ -257,6 +264,9 @@ function applytheme(theme) {
             Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
                 el.classList.add('velvetbg');
             });
+            Array.from(document.querySelectorAll('.elheader')).forEach(function (el) {
+                el.classList.add('velvethf');
+            });
             api.storage.sync.set({ prefs_themepreset: 'velvet' });
         }else if (theme == 'trans') {
             Array.from(document.getElementsByTagName('input')).forEach(function (el) {
@@ -265,6 +275,9 @@ function applytheme(theme) {
             document.body.classList.add('transbg');
             Array.from(document.querySelectorAll('.main_setting')).forEach(function (el) {
                 el.classList.add('transbg');
+            });
+            Array.from(document.querySelectorAll('.elheader')).forEach(function (el) {
+                el.classList.add('transhf');
             });
             api.storage.sync.set({ prefs_themepreset: 'trans' });
         } else {

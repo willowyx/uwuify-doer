@@ -20,6 +20,7 @@ You can also turn off the perma-uwu mode so it only activates when you choose!
 * even more uwu mode
 * site whitelist
 * convenient keyboard shortcuts
+* themes to support your customization addiction
 * profound sense of accomplishment(?)
 
 <br>
@@ -36,4 +37,4 @@ As a general rule of thumb, for security reasons uwuify won't work on privileged
 
 ### [here you go!](https://willowyx.dev/projects/uwuify)
 
-#### It also has some more FAQs and screenshots there if you wish to locate additional information or help :3
+#### The site also features some FAQs and screenshots if you are interested! :3
