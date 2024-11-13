@@ -318,21 +318,27 @@ input:hover ~ label.hlabel {
 }
 
 #icon_default_btn {
+    background: rgba(0, 0, 0, .1);
     background-image: url(icon.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 
 #icon_hr_btn {
+    background: rgba(0, 0, 0, .1);
     background-image: url(icon_hr.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 
 #icon_hr2_btn {
+    background: rgba(0, 0, 0, .1);
     background-image: url(icon_hr2.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 
 @media screen and (max-width: 800px) {
