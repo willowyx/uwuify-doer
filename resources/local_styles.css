@@ -317,6 +317,24 @@ input:hover ~ label.hlabel {
     cursor: pointer;
 }
 
+#icon_default_btn {
+    background-image: url(icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#icon_hr_btn {
+    background-image: url(icon_hr.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#icon_hr2_btn {
+    background-image: url(icon_hr2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 @media screen and (max-width: 800px) {
     .footer {
         position: fixed;

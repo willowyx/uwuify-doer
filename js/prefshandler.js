@@ -29,6 +29,9 @@ function connect_prefs() {
     const accent_trans = document.getElementById('accent_trans');
     const notif_main = document.getElementById('notif_main');
     const notif_mainbtn = document.getElementById('notif_mainbtn');
+    const icon_defbtn = document.getElementById('icon_default_btn');
+    const icon_hrbtn = document.getElementById('icon_hr_btn');
+    const icon_hr2btn = document.getElementById('icon_hr2_btn');
 
     if (uwu_on_btn) {
         uwu_on_btn.addEventListener('click', async () => {
@@ -143,6 +146,24 @@ function connect_prefs() {
         notif_mainbtn.addEventListener('click', () => {
             notif_main.classList.remove('hidden-noint');
         });
+    }
+
+    if(icon_defbtn) {
+        icon_defbtn.addEventListener('click', async () =>  {
+            await api.action.setIcon({ path: "resources/icon.png" });
+        })
+    }
+
+    if(icon_hrbtn) {
+        icon_hrbtn.addEventListener('click', async () =>  {
+            await api.action.setIcon({ path: "resources/icon_hr.png" });
+        })
+    }
+
+    if(icon_hr2btn) {
+        icon_hr2btn.addEventListener('click', async () =>  {
+            await api.action.setIcon({ path: "resources/icon_hr2.png" });
+        })
     }
 
     if (mv3_btn) {
