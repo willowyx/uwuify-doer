@@ -40,11 +40,12 @@
             <br><br><hr>
             <span class="info-detail">
                 <h3>Instructions:</h3> Enter domains to whitelist, separated by commas (spaces and newlines are automatically ignored)<br>
-                You can specify pages and subdomains, but don't include regex or website protocols (http/s)
+                Pages and subdomains will be matched to more generic rules, but not the other way around: visiting example.com/page will match the rule for example.com<br>
+                Regex and protocol specifiers (http/s) are not supported
                 <h3>Notes:</h3>
-                Applying the whitelist will overwrite all current entries, so always input the entire list.<br>
-                Whitelisted domains can still be manually uwuified.<br>
-                Entries are case-sensitive, so enter in all lowercase if you're unsure!
+                Applying the whitelist will overwrite all current entries, so input the entire list.<br>
+                Whitelisted domains can still be manually uwuified but you'll be asked confirmation.<br>
+                Entries are case-sensitive, generally use lowercase if you're unsure.
             </span>
             <br><br><hr><br>
             <label>

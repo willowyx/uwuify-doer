@@ -1,11 +1,8 @@
 EXTENSION ICON: I slightly modified the cursor icon from https://old.reddit.com/r/boykisser/comments/18g82vb/boykisser_cursors_lol/
-I couldn't find the original author from this reddit post, pls let me know if you know who it is :3
+I couldn't find the original author from the reddit post, pls let me know if you know who it is :3
 
 
 FONT: Montserrat (Open Font License) - https://github.com/JulietaUla/Montserrat
-
-
-DOCS HEADER by Vera Kratochvil (Public Domain/CC0)
 
 
 "Rainbow Gradient Border" -  https://codepen.io/unnegative/details/dVwYBq  (MIT License)

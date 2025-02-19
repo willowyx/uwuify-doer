@@ -8,44 +8,6 @@
     <script type="text/javascript" src="js/prefshandler.js"></script>
     <link rel="stylesheet" type="text/css" href="resources/local_styles.css">
     <style type="text/css">
-        body {
-            margin: 0;
-            padding: 0;
-            background: rgb(145, 62, 134) !important;
-            color: #fff0b6 !important;
-        }
-
-        hr {
-            border: 1px solid #fff;
-        }
-
-        .header {
-            color: #fff !important;
-            background: rgb(145, 62, 134) !important;
-        }
-
-        .container {
-            padding: 20px;
-            flex-wrap: wrap;
-            padding-bottom: 50px;
-        }
-
-
-        .footer {
-            background: rgb(145, 62, 134) !important;
-            color: #fff !important;
-        }
-
-        .link {
-            color: #fff;
-            background-color: #994787;
-        }
-
-        .main_setting {
-            background: rgb(145, 62, 134) !important;
-            color: #fff0b6 !important;
-        }
-
         @media screen and (max-width: 600px) {
             .card {
                 width: 100%;
@@ -62,9 +24,19 @@
     <div class="main_setting" style="display: inline-block;">
         <h1>hey there!</h1>
         <h3>
-            uwuify is ready to go!
+            do you want to enable perma-uwu mode?
+            this will uwuify every page as soon as it loads.
             <br><br>
-            you can turn off perma-uwu mode from the extension menu if you wish!
+            keeping this on *might* uwuify documents you edit
+            if you don't explicitly <a class="alink" href="prefs.html">whitelist</a>
+            those sites so be careful!
+            <br><br>
+            <label>
+                <input type="button" class="link" id="uwuify_on_btn" value="uwuify everything">
+            </label>
+            <label>
+                <input type="button" class="link" id="uwuify_off_btn" value="uwuify only when I choose to">
+            </label>
         </h3>
     </div>
 
