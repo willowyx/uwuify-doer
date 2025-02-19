@@ -21,7 +21,6 @@ function connect_prefs() {
     const refresh_wl_btn = document.getElementById('refresh_whitelist_btn');
     const clear_wl_btn = document.getElementById('clear_whitelist_btn');
     const apply_wl_btn = document.getElementById('apply_whitelist_btn');
-    const mv3_btn = document.getElementById('mv3_permissions_btn');
     const accent_default = document.getElementById('accent_default');
     const accent_nocturne = document.getElementById('accent_night');
     const accent_downpour = document.getElementById('accent_downpour');
@@ -165,17 +164,6 @@ function connect_prefs() {
             await api.action.setIcon({ path: "resources/icon_hr2.png" });
         })
     }
-
-    if (mv3_btn) {
-        mv3_btn.addEventListener('click', async () => {
-            const granted = await api.permissions.request({ origins: ["<all_urls>"] });
-            if (granted) {
-                alert('initialization is complete!');
-            } else {
-                alert('[permission denied] you can always enable this later!');
-            }
-        });
-    }
 }
 
 async function populate_prefs() {
@@ -187,11 +175,11 @@ async function populate_prefs() {
         const uwuify_on_btn = document.getElementById('uwuify_on_btn');
         const uwuify_off_btn = document.getElementById('uwuify_off_btn');
         if (uwuStateInfo) {
-            uwuStateInfo.innerText = value === true || value === undefined ? 'on' : 'off';
+            uwuStateInfo.innerText = value === true ? 'on' : 'off';
         }
         if (uwuify_on_btn && uwuify_off_btn) {
-            uwuify_on_btn.style.border = value === true || value === undefined ? '1px solid rgb(238, 238, 238)' : '1px solid rgb(0,0,0,.3)';
-            uwuify_off_btn.style.border = value === false ? '1px solid rgb(238, 238, 238)' : '1px solid rgb(0,0,0,.3)';
+            uwuify_on_btn.style.border = value === true ? '1px solid rgb(238, 238, 238)' : '1px solid rgb(0,0,0,.3)';
+            uwuify_off_btn.style.border = value === false || value === undefined ? '1px solid rgb(238, 238, 238)' : '1px solid rgb(0,0,0,.3)';
         }
     });
     getState('prefs_moreuwu').then(value => {
@@ -308,35 +296,19 @@ function applytheme(theme) {
 }
 
 function enableUwuify() {
-    api.storage.sync.set({ prefs_uwuify: true }, function () {
-        getState('prefs_uwuify').then(value => {
-            // console.log(value);
-        });
-    });
+    api.storage.sync.set({ prefs_uwuify: true });
 }
 
 function disableUwuify() {
-    api.storage.sync.set({ prefs_uwuify: false }, function () {
-        getState('prefs_uwuify').then(value => {
-            // console.log(value);
-        });
-    });
+    api.storage.sync.set({ prefs_uwuify: false });
 }
 
 function enable_moreuwu() {
-    api.storage.sync.set({ prefs_moreuwu: true }, function () {
-        getState('prefs_moreuwu').then(value => {
-            // console.log(value);
-        });
-    });
+    api.storage.sync.set({ prefs_moreuwu: true });
 }
 
 function disable_moreuwu() {
-    api.storage.sync.set({ prefs_moreuwu: false }, function () {
-        getState('prefs_moreuwu').then(value => {
-            // console.log(value);
-        });
-    });
+    api.storage.sync.set({ prefs_moreuwu: false });
 }
 
 function resetWarnings() {
@@ -405,15 +377,6 @@ function checkExtensionCurrent() {
     const url = window.location.href;
     if (url.startsWith('chrome-extension:') || url.startsWith('moz-extension:')) {
         return true;
-    }
-}
-
-function getBrowserType() {
-    const userAgent = navigator.userAgent;
-    if (/Firefox/i.test(userAgent)) {
-        return 'Firefox';
-    } else if (/Chrome/i.test(userAgent)) {
-        return 'Chrome';
     }
 }
 

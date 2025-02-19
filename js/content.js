@@ -2,7 +2,7 @@ var api = typeof browser !== 'undefined' ? browser : chrome;
 
 async function safe_uwuify() {
     const value = await getState('prefs_uwuify');
-    if (value || value === undefined) {
+    if (value) {
         await callSafe_bg(true);
     }
 }
@@ -64,7 +64,6 @@ async function checkUwuAmount() {
 
 async function uwuifyText(node) {
     if (node.nodeType === Node.TEXT_NODE) {
-        // fix for additional uwuification of whitespace
         if (!/\S/.test(node.textContent)) {
             return;
         }
