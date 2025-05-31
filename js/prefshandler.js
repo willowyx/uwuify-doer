@@ -343,7 +343,7 @@ async function addToWhitelist(domains) {
         let newWhitelist = [];
         domainArray.forEach(domain => {
             domain = domain.trim();
-            let domainRegex = /^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9](\/[a-zA-Z0-9-._~:\/?#\[\]@!$&'()*+,;=]*)?$/;
+            let domainRegex = /^[a-zA-Z0-9\/.?\-_=]*$/;
             if (domainRegex.test(domain)) {
                 newWhitelist.push(domain);
             } else {

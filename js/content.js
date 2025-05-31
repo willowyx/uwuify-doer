@@ -243,7 +243,7 @@ function getWhitelist_content() {
 async function callSafe_bg(autostate) {
     if ((await checkWhitelist() != false)) {
         if (autostate != true) {
-            const notif = 'this site is on uwuify\'s whitelist (' + await checkWhitelist() + '). ' +
+            const notif = 'The term \"' + await checkWhitelist() + '\" appears on uwuify\'s whitelist. ' +
                 'Do you wish to uwuify anyway?';
             if (await checkStateLayoutModal() == true) {
                 await call_uwuify();

@@ -21,6 +21,7 @@ body {
     padding: 20px;
     flex-wrap: wrap;
     margin-top: 7vh;
+    padding-bottom: 66px;
 }
 
 .container.main {
@@ -203,15 +204,9 @@ hr {
 }
 
 .main_setting {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 50%;
-    bottom: 0;
     z-index: 1;
     padding: 35px;
     display: none;
-    overflow: auto;
     margin-top: 7vh;
     margin-bottom: 5vh;
     border-left: 1px solid #fff;
@@ -341,38 +336,44 @@ input:hover ~ label.hlabel {
     background-size: contain;
 }
 
-@media screen and (max-width: 800px) {
-    .footer {
-        position: fixed;
-        background: #004d57;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        height: 3vh;
-        padding: 0;
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
+@media screen and (max-width: 500px) and (max-height: 600px) {
+    .container {
+        margin-top: 6vh;
+        padding: 10px 10px 66px 10px;
+    }
+
+    .pref-section {
+        display: block;
+        margin-bottom: 24px;
     }
 
     .main_detail {
-        width: 90%;
+        width: 100%;
+        font-size: 1.2em;
+        padding: 12px 0 8px 0;
+        border: none;
         cursor: pointer;
-        transition: border 0.3s;
     }
 
     .main_detail:hover {
-        border: 1px solid #fff;
+        border: none;
     }
 
     .main_setting {
-        position: fixed;
-        top: 50%;
-        right: 0;
-        left: 0;
-        padding-bottom: 5vh;
-        border-left: none;
-        border-top: 3px solid #fff;
+        margin: 0;
+        padding: 16px;
+        border: none;
+        background: none;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .header {
+        position: static;
+        width: 100%;
+        min-height: 40px;
+        height: auto;
+        padding: 10px 0;
+        margin-bottom: 12px;
     }
 }
