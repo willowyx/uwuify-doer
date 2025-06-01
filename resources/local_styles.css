@@ -25,7 +25,7 @@ body {
 }
 
 .container.main {
-    padding: 20px;
+    padding: 0 20px 20px 20px;
     flex-wrap: wrap;
     margin-top: 0;
 }
@@ -276,7 +276,7 @@ input:hover ~ label.hlabel {
     position: relative;
     height: fit-content;
     min-height: 40px;
-    padding: 3%;
+    /* padding: 3%; */
 }
 
 .footer_link {
@@ -336,7 +336,7 @@ input:hover ~ label.hlabel {
     background-size: contain;
 }
 
-@media screen and (max-width: 500px) and (max-height: 600px) {
+@media screen and (max-width: 500px) {
     .container {
         margin-top: 6vh;
         padding: 10px 10px 66px 10px;
@@ -373,7 +373,11 @@ input:hover ~ label.hlabel {
         width: 100%;
         min-height: 40px;
         height: auto;
-        padding: 10px 0;
+        padding: 5px 0 5px 0;
         margin-bottom: 12px;
+    }
+
+    .header:not(.main) {
+        padding: 10px 0 10px 0;
     }
 }
