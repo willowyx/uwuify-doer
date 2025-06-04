@@ -313,24 +313,40 @@ input:hover ~ label.hlabel {
 }
 
 #icon_default_btn {
-    background: rgba(0, 0, 0, .1);
+    background: rgba(255, 255, 255, .1);
     background-image: url(icon.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
 
-#icon_hr_btn {
-    background: rgba(0, 0, 0, .1);
-    background-image: url(icon_hr.png);
+#icon_hr2_btn {
+    background: rgba(255, 255, 255, .1);
+    background-image: url(a2.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
 
-#icon_hr2_btn {
-    background: rgba(0, 0, 0, .1);
-    background-image: url(icon_hr2.png);
+#icon_hr3_btn {
+    background: rgba(255, 255, 255, .1);
+    background-image: url(a3.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#icon_hr4_btn {
+    background: rgba(255, 255, 255, .1);
+    background-image: url(a4.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#icon_hr5_btn {
+    background: rgba(255, 255, 255, .1);
+    background-image: url(a5.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

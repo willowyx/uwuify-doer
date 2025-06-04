@@ -1,7 +1,7 @@
 var api = typeof browser !== 'undefined' ? browser : chrome;
 
 document.addEventListener('DOMContentLoaded', async function () {
-    console.log('Started prefshandler.js');
+    console.log('started prefshandler.js');
     getState('prefs_themepreset').then(value => {
         applytheme(value);
     });
@@ -29,8 +29,10 @@ function connect_prefs() {
     const notif_main = document.getElementById('notif_main');
     const notif_mainbtn = document.getElementById('notif_mainbtn');
     const icon_defbtn = document.getElementById('icon_default_btn');
-    const icon_hrbtn = document.getElementById('icon_hr_btn');
     const icon_hr2btn = document.getElementById('icon_hr2_btn');
+    const icon_hr3btn = document.getElementById('icon_hr3_btn');
+    const icon_hr4btn = document.getElementById('icon_hr4_btn');
+    const icon_hr5btn = document.getElementById('icon_hr5_btn');
 
     if (uwu_on_btn) {
         uwu_on_btn.addEventListener('click', async () => {
@@ -150,18 +152,35 @@ function connect_prefs() {
     if(icon_defbtn) {
         icon_defbtn.addEventListener('click', async () =>  {
             await api.action.setIcon({ path: "resources/icon.png" });
-        })
-    }
-
-    if(icon_hrbtn) {
-        icon_hrbtn.addEventListener('click', async () =>  {
-            await api.action.setIcon({ path: "resources/icon_hr.png" });
+            api.storage.sync.set({ prefs_icon: "default" });
         })
     }
 
     if(icon_hr2btn) {
         icon_hr2btn.addEventListener('click', async () =>  {
-            await api.action.setIcon({ path: "resources/icon_hr2.png" });
+            await api.action.setIcon({ path: "resources/a2.png" });
+            api.storage.sync.set({ prefs_icon: "a2" });
+        })
+    }
+
+    if(icon_hr3btn) {
+        icon_hr3btn.addEventListener('click', async () =>  {
+            await api.action.setIcon({ path: "resources/a3.png" });
+            api.storage.sync.set({ prefs_icon: "a3" });
+        })
+    }
+
+    if(icon_hr4btn) {
+        icon_hr4btn.addEventListener('click', async () =>  {
+            await api.action.setIcon({ path: "resources/a4.png" });
+            api.storage.sync.set({ prefs_icon: "a4" });
+        })
+    }
+
+    if(icon_hr5btn) {
+        icon_hr5btn.addEventListener('click', async () =>  {
+            await api.action.setIcon({ path: "resources/a5.png" });
+            api.storage.sync.set({ prefs_icon: "a5" });
         })
     }
 }
@@ -242,7 +261,7 @@ function resetTheme() {
 function applytheme(theme) {
     if (checkExtensionCurrent()) {
         resetTheme();
-        if (theme == 'default') {
+        if (theme == 'default' || theme == undefined) {
             api.storage.sync.set({ prefs_themepreset: 'default' });
         } else if (theme == 'nocturne') {
             Array.from(document.getElementsByTagName('input')).forEach(function (el) {

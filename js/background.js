@@ -15,8 +15,25 @@ api.runtime.onInstalled.addListener(async (details) => {
     }
 });
 
+api.runtime.onStartup.addListener(() => {
+    (async () => {
+        const data = await new Promise((resolve) => {
+            api.storage.sync.get(['prefs_icon'], resolve);
+        });
+        let iconpath = "resources/icon.png";
+        if (data.prefs_icon && ["a2", "a3", "a4", "a5"].includes(data.prefs_icon)) {
+            iconpath = api.runtime.getURL("resources/" + data.prefs_icon + ".png");
+        }
+        try {
+            await api.action.setIcon({ path: iconpath });
+        } catch (err) {
+            console.error("could not set icon: ", err);
+        }
+    })();
+});
+
+
 api.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log('setting listener');
     if (request.action === "call_uwuify") {
         api.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             api.tabs.sendMessage(tabs[0].id, { action: "call_uwuify" });

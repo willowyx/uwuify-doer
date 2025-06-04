@@ -119,7 +119,7 @@ async function uwuify(str) {
 }
 
 (async function () {
-    console.log('Started content script');
+    console.log('started content script');
     await safe_uwuify();
 })();
 
@@ -185,7 +185,7 @@ const modalContent = document.createElement('div');
 modalContent.className = 'modal-content';
 
 const modalIcon = document.createElement('img');
-modalIcon.src = api.runtime.getURL('resources/icon_info.png');
+modalIcon.src = api.runtime.getURL('resources/a4.png');
 modalIcon.id = 'modal-icon';
 modalIcon.alt = 'uwuify icon';
 

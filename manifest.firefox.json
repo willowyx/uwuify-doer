@@ -1,7 +1,7 @@
 {
   "name": "uwuify-doer",
   "description": "uwuifies the web",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "manifest_version": 3,
   "permissions": [
     "activeTab",
@@ -25,7 +25,11 @@
       "resources": [
         "resources/icon_info.png",
         "resources/local_styles.css",
-        "resources/icon.png"
+        "resources/icon.png",
+        "resources/a2.png",
+        "resources/a3.png",
+        "resources/a4.png",
+        "resources/a5.png"
       ],
       "matches": ["<all_urls>"]
     }
@@ -49,7 +53,7 @@
     "open_in_tab": true
   },
   "icons": {
-    "48": "resources/icon.png"
+    "32": "resources/icon.png"
   },
   "browser_specific_settings": {
     "gecko": {
