@@ -352,6 +352,14 @@ input:hover ~ label.hlabel {
     background-size: contain;
 }
 
+#icon_hr6_btn {
+    background: rgba(255, 255, 255, .1);
+    background-image: url(a6.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
 @media screen and (max-width: 500px) {
     .container {
         margin-top: 6vh;

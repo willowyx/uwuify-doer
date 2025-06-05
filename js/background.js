@@ -21,7 +21,7 @@ api.runtime.onStartup.addListener(() => {
             api.storage.sync.get(['prefs_icon'], resolve);
         });
         let iconpath = "resources/icon.png";
-        if (data.prefs_icon && ["a2", "a3", "a4", "a5"].includes(data.prefs_icon)) {
+        if (data.prefs_icon && ["a2", "a3", "a4", "a5", "a6"].includes(data.prefs_icon)) {
             iconpath = api.runtime.getURL("resources/" + data.prefs_icon + ".png");
         }
         try {

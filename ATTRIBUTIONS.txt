@@ -1,8 +1,6 @@
 LICENSING DISCLAIMER
 All non-original content used in this Software ("uwuify-doer") are listed in this text file.
-Content included in this Software that is not explicitly licensed in a manner compatible with the
-distribution License (the MIT License) is not covered by or included in the Software under this
-License, nor is it distributed in such a manner.
+Content included in this Software that is not explicitly licensed in a manner compatible with the distribution License (the MIT License) is not covered by or included in the Software under this License, nor is it distributed in such a manner.
 
 
 EXTENSION ICON (default): modified https://old.reddit.com/r/boykisser/comments/18g82vb/boykisser_cursors_lol/
@@ -12,4 +10,4 @@ FONT: Montserrat (Open Font License) - https://github.com/JulietaUla/Montserrat
 THEMED BUTTONS: Rainbow Gradient Border (MIT License) -  https://codepen.io/unnegative/details/dVwYBq
 by @morgane https://codepen.io/unnegative
 
-(updated 4 June 2025)
+(updated 5 June 2025)

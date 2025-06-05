@@ -33,6 +33,7 @@ function connect_prefs() {
     const icon_hr3btn = document.getElementById('icon_hr3_btn');
     const icon_hr4btn = document.getElementById('icon_hr4_btn');
     const icon_hr5btn = document.getElementById('icon_hr5_btn');
+    const icon_hr6btn = document.getElementById('icon_hr6_btn');
 
     if (uwu_on_btn) {
         uwu_on_btn.addEventListener('click', async () => {
@@ -181,6 +182,13 @@ function connect_prefs() {
         icon_hr5btn.addEventListener('click', async () =>  {
             await api.action.setIcon({ path: "resources/a5.png" });
             api.storage.sync.set({ prefs_icon: "a5" });
+        })
+    }
+    
+    if(icon_hr6btn) {
+        icon_hr6btn.addEventListener('click', async () =>  {
+            await api.action.setIcon({ path: "resources/a6.png" });
+            api.storage.sync.set({ prefs_icon: "a6" });
         })
     }
 }

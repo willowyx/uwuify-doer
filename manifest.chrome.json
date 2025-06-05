@@ -1,7 +1,7 @@
 {
   "name": "uwuify-doer",
   "description": "uwuifies the web",
-  "version": "1.7.4",
+  "version": "1.7.5",
   "manifest_version": 3,
   "permissions": [
     "activeTab",
@@ -29,7 +29,8 @@
         "resources/a2.png",
         "resources/a3.png",
         "resources/a4.png",
-        "resources/a5.png"
+        "resources/a5.png",
+        "resources/a6.png"
       ],
       "matches": ["<all_urls>"]
     }
